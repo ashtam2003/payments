@@ -22,19 +22,6 @@
             --blue: #2563eb;
             --blue-light: #eff4ff;
             --blue-mid: #dbeafe;
-            --indigo: #4f46e5;
-            --indigo-light: #eef2ff;
-            --teal: #0d9488;
-            --teal-light: #f0fdfa;
-            --amber: #d97706;
-            --amber-light: #fffbeb;
-            --amber-mid: #fef3c7;
-            --green: #16a34a;
-            --green-light: #f0fdf4;
-            --rose: #e11d48;
-            --rose-light: #fff1f2;
-            --purple: #7c3aed;
-            --purple-light: #f5f3ff;
             --slate: #475569;
         }
 
@@ -372,33 +359,11 @@
         }
 
         .ch-num {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 800;
-            color: white;
-            flex-shrink: 0;
-            background: var(--blue) !important;
-            box-shadow: none;
+            display: none !important;
         }
 
         .bt-num {
-            width: 20px;
-            height: 20px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 9px;
-            font-weight: 700;
-            color: white;
-            flex-shrink: 0;
-            background: var(--blue) !important;
-            box-shadow: none;
+            display: none !important;
         }
 
         .nav-dot,
@@ -531,39 +496,36 @@
             margin-bottom: 2px;
         }
 
-        .card-blue {
+        .card-blue,
+        .card-green,
+        .card-amber,
+        .card-rose,
+        .card-indigo,
+        .card-teal,
+        .card-purple,
+        .card,
+        .info-card,
+        .mental-model-card {
             border-left: 3px solid var(--blue);
-            background: var(--blue-light);
+            background: var(--blue-light) !important;
+            border: 1px solid var(--blue-mid) !important;
+            color: var(--text) !important;
         }
 
-        .card-green {
-            border-left: 3px solid var(--green);
-            background: var(--green-light);
+        .card h4,
+        .card p,
+        .card ul,
+        .card li,
+        .info-card h4,
+        .info-card p,
+        .mental-model-card h4,
+        .mental-model-card p {
+            color: var(--text) !important;
         }
 
-        .card-amber {
-            border-left: 3px solid var(--amber);
-            background: var(--amber-light);
-        }
-
-        .card-rose {
-            border-left: 3px solid var(--rose);
-            background: var(--rose-light);
-        }
-
-        .card-indigo {
-            border-left: 3px solid var(--indigo);
-            background: var(--indigo-light);
-        }
-
-        .card-teal {
-            border-left: 3px solid var(--teal);
-            background: var(--teal-light);
-        }
-
-        .card-purple {
-            border-left: 3px solid var(--purple);
-            background: var(--purple-light);
+        .tag {
+            background: var(--blue-mid) !important;
+            color: var(--blue) !important;
         }
 
         .card-highlight {
@@ -652,59 +614,29 @@
         }
 
         .cb p {
-            color: #1e40af;
+            color: var(--blue);
         }
 
-        .ca {
-            background: var(--amber-light);
-            border: 1px solid var(--amber-mid);
-        }
-
-        .ca strong {
-            color: var(--amber);
-        }
-
-        .ca p {
-            color: #92400e;
-        }
-
-        .cg {
-            background: var(--green-light);
-            border: 1px solid #bbf7d0;
-        }
-
-        .cg strong {
-            color: var(--green);
-        }
-
-        .cg p {
-            color: #166534;
-        }
-
-        .cr {
-            background: var(--rose-light);
-            border: 1px solid #fecdd3;
-        }
-
-        .cr strong {
-            color: var(--rose);
-        }
-
-        .cr p {
-            color: #9f1239;
-        }
-
+        .ca,
+        .cg,
+        .cr,
         .cp {
-            background: var(--purple-light);
-            border: 1px solid #ddd6fe;
+            background: var(--blue-light);
+            border: 1px solid var(--blue-mid);
         }
 
+        .ca strong,
+        .cg strong,
+        .cr strong,
         .cp strong {
-            color: var(--purple);
+            color: var(--blue);
         }
 
+        .ca p,
+        .cg p,
+        .cr p,
         .cp p {
-            color: #4c1d95;
+            color: var(--blue);
         }
 
         /* TAGS */
@@ -721,39 +653,15 @@
             color: var(--blue);
         }
 
-        .t-green {
-            background: #dcfce7;
-            color: var(--green);
-        }
-
-        .t-amber {
-            background: var(--amber-mid);
-            color: var(--amber);
-        }
-
-        .t-rose {
-            background: #ffe4e6;
-            color: var(--rose);
-        }
-
-        .t-slate {
-            background: #f1f5f9;
-            color: var(--slate);
-        }
-
-        .t-indigo {
-            background: #e0e7ff;
-            color: var(--indigo);
-        }
-
-        .t-purple {
-            background: #ede9fe;
-            color: var(--purple);
-        }
-
+        .t-green,
+        .t-amber,
+        .t-rose,
+        .t-slate,
+        .t-indigo,
+        .t-purple,
         .t-teal {
-            background: #ccfbf1;
-            color: var(--teal);
+            background: var(--blue-mid);
+            color: var(--blue);
         }
 
         /* CREDIT CARD VISUAL */
@@ -831,45 +739,46 @@
         /* FLOW */
         .flow {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 14px;
         }
 
         .flow-item {
-            display: flex;
-            gap: 12px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 12px;
+            min-width: 220px;
+            flex: 1 1 220px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
             align-items: flex-start;
-            padding-bottom: 14px;
-            position: relative;
+            display: flex;
+            gap: 10px;
         }
 
         .flow-item:last-child {
-            padding-bottom: 0;
+            padding-bottom: 14px;
         }
 
         .fc {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 9.5px;
+            font-size: 11px;
             font-weight: 700;
             color: white;
             flex-shrink: 0;
             position: relative;
             z-index: 1;
+            box-shadow: none;
         }
 
         .flow-item:not(:last-child) .fc::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 14px;
-            background: var(--border);
+            display: none;
         }
 
         .fb {
@@ -933,87 +842,71 @@
         }
 
         .sr-poor {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
+            background: var(--blue-light);
+            border: 1px solid var(--blue-mid);
         }
 
         .sr-poor .sn {
-            color: #ef4444;
+            color: var(--blue);
         }
 
-        .sr-fair {
-            background: var(--amber-light);
-            border: 1px solid var(--amber-mid);
-        }
-
-        .sr-fair .sn {
-            color: var(--amber);
-        }
-
-        .sr-good {
-            background: #fefce8;
-            border: 1px solid #fef08a;
-        }
-
-        .sr-good .sn {
-            color: #ca8a04;
-        }
-
-        .sr-vg {
-            background: #f7fee7;
-            border: 1px solid #d9f99d;
-        }
-
-        .sr-vg .sn {
-            color: #65a30d;
-        }
-
+        .sr-fair,
+        .sr-good,
+        .sr-vg,
         .sr-exc {
-            background: var(--green-light);
-            border: 1px solid #bbf7d0;
+            background: var(--blue-light);
+            border: 1px solid var(--blue-mid);
         }
 
+        .sr-fair .sn,
+        .sr-good .sn,
+        .sr-vg .sn,
         .sr-exc .sn {
-            color: var(--green);
+            color: var(--blue);
         }
 
-        /* PIE */
-        .fico-wrap {
+        /* FICO BAR CHART */
+        .fico-bar-chart {
             display: flex;
-            gap: 14px;
-            align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 8px;
             margin-top: 9px;
         }
 
-        .fico-pie {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            flex-shrink: 0;
-            background: conic-gradient(#2563eb 0% 35%, #0d9488 35% 65%, #16a34a 65% 80%, #d97706 80% 90%, #e11d48 90% 100%);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
-        }
-
-        .fico-legend {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .fi {
+        .bar-item {
             display: flex;
             align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            color: var(--slate);
+            gap: 10px;
         }
 
-        .fd {
-            width: 8px;
-            height: 8px;
-            border-radius: 2px;
-            flex-shrink: 0;
+        .bar-label {
+            font-size: 11px;
+            color: var(--text);
+            min-width: 130px;
+        }
+
+        .bar-track {
+            flex: 1;
+            background: var(--blue-light);
+            border-radius: 6px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--blue);
+            border-radius: 6px;
+            width: 0;
+            transition: width .35s ease;
+        }
+
+        .bar-percent {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--blue);
+            min-width: 30px;
+            text-align: right;
         }
 
         /* NETWORKS */
@@ -1081,32 +974,14 @@
             background: var(--blue);
         }
 
-        .ac2::before {
-            background: var(--teal);
-        }
-
-        .ac3::before {
-            background: var(--green);
-        }
-
-        .ac4::before {
-            background: var(--amber);
-        }
-
-        .ac5::before {
-            background: #f97316;
-        }
-
-        .ac6::before {
-            background: var(--indigo);
-        }
-
-        .ac7::before {
-            background: var(--rose);
-        }
-
+        .ac2::before,
+        .ac3::before,
+        .ac4::before,
+        .ac5::before,
+        .ac6::before,
+        .ac7::before,
         .ac8::before {
-            background: #ec4899;
+            background: var(--blue);
         }
 
         .auth-num {
@@ -1274,13 +1149,13 @@
         }
 
         .mode-test {
-            background: var(--amber-light);
-            border: 1px solid var(--amber-mid);
+            background: var(--blue-light);
+            border: 1px solid var(--blue-mid);
         }
 
         .mode-live {
-            background: var(--green-light);
-            border: 1px solid #bbf7d0;
+            background: var(--blue-light);
+            border: 1px solid var(--blue-mid);
         }
 
         .mode-badge {
@@ -1295,13 +1170,13 @@
         }
 
         .mb-test {
-            background: var(--amber-mid);
-            color: #92400e;
+            background: var(--blue-mid);
+            color: var(--blue);
         }
 
         .mb-live {
-            background: #bbf7d0;
-            color: #14532d;
+            background: var(--blue-mid);
+            color: var(--blue);
         }
 
         .mode-card h4 {
@@ -1311,11 +1186,11 @@
         }
 
         .mode-test h4 {
-            color: #92400e;
+            color: var(--blue);
         }
 
         .mode-live h4 {
-            color: #14532d;
+            color: var(--blue);
         }
 
         .mode-card ul {
@@ -1328,11 +1203,11 @@
         }
 
         .mode-test li {
-            color: #92400e;
+            color: var(--blue);
         }
 
         .mode-live li {
-            color: #166534;
+            color: var(--blue);
         }
 
         /* ACH FLOW */
@@ -1886,55 +1761,9 @@
                 <div class="block-title">
                     <div class="bt-num" style="background:#2563eb;">2</div>Credit Card Components
                 </div>
-                <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;">
-                    <div class="cc-visual">
-                        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-                            <div class="cc-chip"></div><span style="font-size:7px;color:rgba(255,255,255,.28);">PAYMENT
-                                BANK</span>
-                        </div>
-                        <div class="cc-num">4242 4242 4242 4242</div>
-                        <div class="cc-bottom">
-                            <div>
-                                <div class="cc-lbl">Card Holder</div>
-                                <div class="cc-name">JOHN D. SMITH</div>
-                                <div style="margin-top:4px;">
-                                    <div class="cc-lbl">Valid Thru</div>
-                                    <div class="cc-val">12 / 28</div>
-                                </div>
-                            </div>
-                            <div class="cc-net">VISA</div>
-                        </div>
-                    </div>
-                    <div style="flex:1;min-width:190px;display:flex;flex-direction:column;gap:7px;">
-                        <div class="card" style="padding:9px 11px;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;"><span
-                                    style="font-size:11.5px;font-weight:700;color:var(--text);">Card Number
-                                    (PAN)</span><span class="tag t-blue" style="font-family:'DM Mono',monospace;">16
-                                    digits</span></div>
-                            <p style="font-size:10.5px;margin-top:3px;">First 6 = BIN — identifies bank &amp; network.
-                                Starts 4=Visa, 5=MC, 34/37=AmEx.</p>
-                        </div>
-                        <div class="card" style="padding:9px 11px;">
-                            <div style="display:flex;justify-content:space-between;"><span
-                                    style="font-size:11.5px;font-weight:700;color:var(--text);">Expiry Date</span><span
-                                    class="tag t-blue">MM/YYYY</span></div>
-                            <p style="font-size:10.5px;margin-top:3px;">Valid through end of month. Auto-rejected by
-                                gateway if expired.</p>
-                        </div>
-                        <div class="card" style="padding:9px 11px;">
-                            <div style="display:flex;justify-content:space-between;"><span
-                                    style="font-size:11.5px;font-weight:700;color:var(--text);">CVV / CVC</span><span
-                                    class="tag t-rose">3 or 4 digits</span></div>
-                            <p style="font-size:10.5px;margin-top:3px;">Back (Visa/MC: 3 digits), Front (AmEx: 4
-                                digits). Never stored after auth.</p>
-                        </div>
-                        <div class="card" style="padding:9px 11px;">
-                            <div style="display:flex;justify-content:space-between;"><span
-                                    style="font-size:11.5px;font-weight:700;color:var(--text);">EMV Chip</span><span
-                                    class="tag t-amber">Security</span></div>
-                            <p style="font-size:10.5px;margin-top:3px;">Unique code per transaction. Much harder to
-                                clone than magnetic stripe.</p>
-                        </div>
+                <div style="display:flex;justify-content:center;gap:18px;align-items:flex-start;flex-wrap:wrap;">
+                    <div class="img-card" style="flex:1 1 480px;max-width:480px;">
+                        <img src="db-vs-cr.jpeg" alt="Payment flow illustration" style="width:100%;height:auto;display:block;max-width:480px;min-height:180px;object-fit:contain;" />
                     </div>
                 </div>
                 <div class="card-highlight" style="margin-top:16px;">
@@ -2072,58 +1901,53 @@ Double:     8   6   2   16  0   8   12  12</pre>
                             RBI-registered lenders.</p>
                     </div>
                 </div>
-                <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:5px;">FICO Ranges</div>
-                <div class="score-spec"></div>
-                <div class="score-lbls">
-                    <span>300</span><span>580</span><span>670</span><span>740</span><span>800</span><span>850</span>
-                </div>
-                <div class="score-ranges">
-                    <div class="sr sr-poor"><span class="sn">300–579</span><span class="sl">Poor</span></div>
-                    <div class="sr sr-fair"><span class="sn">580–669</span><span class="sl">Fair</span></div>
-                    <div class="sr sr-good"><span class="sn">670–739</span><span class="sl">Good</span></div>
-                    <div class="sr sr-vg"><span class="sn">740–799</span><span class="sl">Very Good</span></div>
-                    <div class="sr sr-exc"><span class="sn">800–850</span><span class="sl">Exceptional</span></div>
-                </div>
                 <hr class="divider" />
-                <div class="block-title">
-                    <div class="bt-num" style="background:#7c3aed;">3</div>Score Factors (FICO)
-                </div>
-                <div class="fico-wrap">
-                    <div class="fico-pie"></div>
-                    <div class="fico-legend">
-                        <div class="fi">
-                            <div class="fd" style="background:#2563eb;"></div><strong>35%</strong> — Payment History
-                        </div>
-                        <div class="fi">
-                            <div class="fd" style="background:#0d9488;"></div><strong>30%</strong> — Credit Utilization
-                        </div>
-                        <div class="fi">
-                            <div class="fd" style="background:#16a34a;"></div><strong>15%</strong> — Length of History
-                        </div>
-                        <div class="fi">
-                            <div class="fd" style="background:#d97706;"></div><strong>10%</strong> — Credit Mix
-                        </div>
-                        <div class="fi">
-                            <div class="fd" style="background:#e11d48;"></div><strong>10%</strong> — New Inquiries
-                        </div>
+                <div class="block-title">Score Factors (FICO)</div>
+                <p style="font-size:12px;color:var(--muted);max-width:680px;">FICO is built from five core factors. This simplified bar chart shows their relative weight and keeps focus on practice, not score values.</p>
+                <div class="fico-bar-chart">
+                    <div class="bar-item">
+                        <div class="bar-label">Payment History</div>
+                        <div class="bar-track"><div class="bar-fill" style="width:35%;"></div></div>
+                        <div class="bar-percent">35%</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">Credit Utilization</div>
+                        <div class="bar-track"><div class="bar-fill" style="width:30%;"></div></div>
+                        <div class="bar-percent">30%</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">Length of History</div>
+                        <div class="bar-track"><div class="bar-fill" style="width:15%;"></div></div>
+                        <div class="bar-percent">15%</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">Credit Mix</div>
+                        <div class="bar-track"><div class="bar-fill" style="width:10%;"></div></div>
+                        <div class="bar-percent">10%</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">New Inquiries</div>
+                        <div class="bar-track"><div class="bar-fill" style="width:10%;"></div></div>
+                        <div class="bar-percent">10%</div>
                     </div>
                 </div>
                 <hr class="divider" />
-                <div class="block-title">
-                    <div class="bt-num" style="background:#7c3aed;">4</div>Credit Bureaus
-                </div>
+                <div class="block-title">Credit Bureaus</div>
                 <!-- <div class="img-row"><div class="img-card img-full"><img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80" alt="Credit report documents"/><div class="img-cap">Credit bureaus maintain your financial track record</div></div></div> -->
                 <div class="bureau-grid">
                     <div class="bureau-card">
-                        <div class="bureau-name" style="color:#cc0000;">Equifax</div>
+                        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Equifax_logo.svg/100px-Equifax_logo.svg.png" alt="Equifax" style="width:80px; height:auto; margin-bottom:5px;"> -->
+                        <div class="bureau-name" style="color:var(--blue);">Equifax</div>
                         <p>Founded 1899. Atlanta, GA. FICO 5 model.</p>
                     </div>
                     <div class="bureau-card">
-                        <div class="bureau-name" style="color:#003087;">Experian</div>
+                        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Experian_logo.svg/100px-Experian_logo.svg.png" alt="Experian" style="width:80px; height:auto; margin-bottom:5px;"> -->
+                        <div class="bureau-name" style="color:var(--blue);">Experian</div>
                         <p>Global. Costa Mesa, CA. FICO 2. Largest globally.</p>
                     </div>
                     <div class="bureau-card">
-                        <div class="bureau-name" style="color:#1b4d9b;">TransUnion</div>
+                        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/TransUnion_logo.svg/100px-TransUnion_logo.svg.png" alt="TransUnion" style="width:80px; height:auto; margin-bottom:5px;"> -->
+                        <div class="bureau-name" style="color:var(--blue);">TransUnion</div>
                         <p>Chicago, IL. FICO 4. Employment screening too.</p>
                     </div>
                 </div>
@@ -2233,14 +2057,13 @@ Double:     8   6   2   16  0   8   12  12</pre>
                             <p>Gateway = POS terminal. It's the door between customer and the banking world.</p>
                         </div>
                     </div>
-                    <div
-                        style="background:linear-gradient(135deg,#f0fdfa,#e6fffa);border:1px solid #99f6e4;border-radius:9px;padding:14px;">
-                        <div style="font-size:15px;font-weight:800;color:#0d9488;margin-bottom:4px;">Authorize.net</div>
-                        <p style="font-size:11.5px;color:#0f766e;margin-bottom:8px;">Founded 1996, owned by Visa Inc. We
+                    <div class="info-card" style="border-radius:9px;padding:14px;">
+                        <div style="font-size:15px;font-weight:800;color:var(--blue);margin-bottom:4px;">Authorize.net</div>
+                        <p style="font-size:11.5px;color:var(--text);margin-bottom:8px;">Founded 1996, owned by Visa Inc. We
                             use this for all transactions.</p>
-                        <div style="display:flex;flex-wrap:wrap;gap:5px;"><span class="tag t-teal">PCI DSS</span><span
-                                class="tag t-teal">SSL Encrypted</span><span class="tag t-teal">Tokenization</span><span
-                                class="tag t-teal">Fraud Detection</span></div>
+                        <div style="display:flex;flex-wrap:wrap;gap:5px;"><span class="tag">PCI DSS</span><span
+                                class="tag">SSL Encrypted</span><span class="tag">Tokenization</span><span
+                                class="tag">Fraud Detection</span></div>
                     </div>
                 </div>
                 <hr class="divider" />
@@ -2566,10 +2389,9 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 </div>
             </div>
             <div class="block">
-                <div
-                    style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1px solid #bbf7d0;border-radius:9px;padding:12px 14px;margin-bottom:14px;">
-                    <div style="font-size:11px;font-weight:700;color:#059669;margin-bottom:6px;">🧠 Mental Model</div>
-                    <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:11.5px;color:#065f46;">
+                <div class="mental-model-card" style="border-radius:9px;padding:12px 14px;margin-bottom:14px;">
+                    <div style="font-size:11px;font-weight:700;color:var(--blue);margin-bottom:6px;">🧠 Mental Model</div>
+                    <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:11.5px;color:var(--text);">
                         <div
                             style="background:white;border:1px solid #bbf7d0;border-radius:6px;padding:5px 9px;text-align:center;">
                             <strong>Authorize</strong><br /><span style="font-size:9px;">"Do they have money?"</span>
