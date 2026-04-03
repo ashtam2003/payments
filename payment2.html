@@ -306,21 +306,26 @@
             display: flex;
             align-items: center;
             gap: 18px;
+            background: var(--blue-light);
+            color: var(--text);
         }
 
-        .sb-blue {
-            background: linear-gradient(135deg, #1e40af, #2563eb);
-            color: white;
+        .section-banner .sb-title,
+        .section-banner .sb-desc {
+            color: var(--text);
         }
 
-        .sb-green {
-            background: linear-gradient(135deg, #065f46, #059669);
-            color: white;
+        .sb-blue,
+        .sb-green,
+        .sb-purple,
+        .sb-valor,
+        .sb-sky {
+            background: var(--blue-light) !important;
+            color: var(--text) !important;
         }
 
-        .sb-purple {
-            background: linear-gradient(135deg, #4c1d95, #7c3aed);
-            color: white;
+        .master-hero {
+            display: none !important;
         }
 
         .sb-num {
@@ -377,6 +382,39 @@
             font-weight: 800;
             color: white;
             flex-shrink: 0;
+            background: var(--blue) !important;
+            box-shadow: none;
+        }
+
+        .bt-num {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+            background: var(--blue) !important;
+            box-shadow: none;
+        }
+
+        .nav-dot,
+        .nav-acc-dot,
+        .flow .fc {
+            background: var(--blue) !important;
+        }
+
+        ul li,
+        ol li {
+            color: var(--slate) !important;
+        }
+
+        ul li::marker,
+        ol li::marker {
+            color: var(--slate) !important;
         }
 
         .ch-label {
@@ -399,6 +437,12 @@
             font-size: 11.5px;
             color: var(--muted);
             margin-top: 2px;
+        }
+
+        /* remove section sublabels and descriptions */
+        .ch-label,
+        .ch-desc {
+            display: none !important;
         }
 
         /* BLOCK */
@@ -1646,7 +1690,7 @@
             <div class="nav-accordion">
                 <div class="nav-acc-header open" onclick="toggleAcc(this)">
                     <div class="nav-acc-dot" style="background:#1e40af;"></div>
-                    <div class="nav-acc-label">A. Credit &amp; Card Payments</div>
+                    <div class="nav-acc-label">Credit &amp; Credit Card Payments</div>
                     <span class="nav-acc-arrow">▾</span>
                 </div>
                 <div class="nav-acc-body open">
@@ -1695,7 +1739,7 @@
             <div class="nav-accordion">
                 <div class="nav-acc-header" onclick="toggleAcc(this)">
                     <div class="nav-acc-dot" style="background:#065f46;"></div>
-                    <div class="nav-acc-label">B. Checks</div>
+                    <div class="nav-acc-label">Checks</div>
                     <span class="nav-acc-arrow">▾</span>
                 </div>
                 <div class="nav-acc-body">
@@ -1720,7 +1764,7 @@
             <div class="nav-accordion">
                 <div class="nav-acc-header" onclick="toggleAcc(this)">
                     <div class="nav-acc-dot" style="background:#4c1d95;"></div>
-                    <div class="nav-acc-label">C. Storyline</div>
+                    <div class="nav-acc-label">Storyline</div>
                     <span class="nav-acc-arrow">▾</span>
                 </div>
                 <div class="nav-acc-body">
@@ -1736,7 +1780,7 @@
             <div class="nav-accordion">
                 <div class="nav-acc-header" onclick="toggleAcc(this)">
                     <div class="nav-acc-dot" style="background:#0d9488;"></div>
-                    <div class="nav-acc-label">D. Authorize.net</div>
+                    <div class="nav-acc-label">Authorize.net</div>
                     <span class="nav-acc-arrow">▾</span>
                 </div>
                 <div class="nav-acc-body">
@@ -1752,7 +1796,7 @@
             <div class="nav-accordion">
                 <div class="nav-acc-header" onclick="toggleAcc(this)">
                     <div class="nav-acc-dot" style="background:#0a3d91;"></div>
-                    <div class="nav-acc-label">E. Valor PayTech</div>
+                    <div class="nav-acc-label">Valor PayTech</div>
                     <span class="nav-acc-arrow">▾</span>
                 </div>
                 <div class="nav-acc-body">
@@ -1775,21 +1819,19 @@
             <p>Credit cards, ACH transfers, paper checks — and a real-world storyline that ties it all together. Read in
                 order, from foundation to implementation.</p>
             <div class="section-pills">
-                <a class="spill spill-blue" href="#section-a">A. Credit &amp; Card Payments</a>
-                <a class="spill spill-teal" href="#section-b">B. Checks</a>
-                <a class="spill spill-purple" href="#section-c">C. Storyline</a>
-                <a class="spill" href="Authorize.html" target="_blank">D. Authorize.net</a>
-                <a class="spill spill-valor" href="#section-e">E. Valor PayTech</a>
+                <a class="spill spill-blue" href="#section-a">Credit &amp; Credit Card Payments</a>
+                <a class="spill spill-teal" href="#section-b">Checks</a>
+                <a class="spill spill-purple" href="#section-c">Storyline</a>
+                <a class="spill" href="Authorize.html" target="_blank">Authorize.net</a>
+                <a class="spill spill-valor" href="#section-e">Valor PayTech</a>
             </div>
         </div>
 
-        <!-- Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢ SECTION A Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢ -->
+        <!-- SECTION A -->
         <div class="section-banner sb-blue" id="section-a">
-            <div class="sb-num">A</div>
             <div>
-                <div class="sb-label">Section A</div>
                 <div class="sb-title">Credit &amp; Credit Card Payments</div>
-                <div class="sb-desc">9 chapters — from card basics to Authorize.net and ACH</div>
+                <!-- <div class="sb-desc">9 chapters — from card basics to Authorize.net and ACH</div> -->
             </div>
         </div>
 
@@ -1800,7 +1842,7 @@
                 <div>
                     <div class="ch-label" style="color:#2563eb;">Foundation</div>
                     <div class="ch-title">Credit Card Fundamentals</div>
-                    <div class="ch-desc">Start here — everything else builds on these basics.</div>
+                    <!-- <div class="ch-desc">Start here — everything else builds on these basics.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -1811,7 +1853,7 @@
                     <div class="img-card img-full"><img
                             src="https://images.unsplash.com/photo-1708423538640-c079fd23c2ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fENyZWRpdCUyMGNhcmRzJTIwJUUyJTgwJTk0JTIwYm9ycm93JTIwbm93JTJDJTIwcmVwYXklMjBsYXRlciUyMGZyb20lMjBpc3N1aW5nJTIwYmFua3xlbnwwfHwwfHx8MA%3D%3D"
                             alt="Credit cards" />
-                        <div class="img-cap">Credit cards — borrow now, repay later from issuing bank</div>
+                        <!-- <div class="img-cap">Credit cards — borrow now, repay later from issuing bank</div> -->
                     </div>
                     <div style="flex:2;min-width:200px;">
                         <p style="color:var(--muted);font-size:12.5px;margin-bottom:10px;">A credit card lets you
@@ -1981,7 +2023,7 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 <div>
                     <div class="ch-label" style="color:#7c3aed;">Credit System</div>
                     <div class="ch-title">Why Banks Trust You</div>
-                    <div class="ch-desc">Banks evaluate creditworthiness before issuing cards or setting limits.</div>
+                    <!-- <div class="ch-desc">Banks evaluate creditworthiness before issuing cards or setting limits.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -2162,8 +2204,8 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 <div>
                     <div class="ch-label" style="color:#0d9488;">Ecosystem</div>
                     <div class="ch-title">Who Is Involved?</div>
-                    <div class="ch-desc">Every payment involves multiple parties — understanding each prevents
-                        confusion.</div>
+                    <!-- <div class="ch-desc">Every payment involves multiple parties — understanding each prevents
+                        confusion.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -2305,7 +2347,7 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 <div>
                     <div class="ch-label" style="color:#d97706;">Transaction Data</div>
                     <div class="ch-title">What Information Is Required?</div>
-                    <div class="ch-desc">Wrong fields cause AVS failures and declines.</div>
+                    <!-- <div class="ch-desc">Wrong fields cause AVS failures and declines.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -2426,9 +2468,9 @@ Double:     8   6   2   16  0   8   12  12</pre>
             <div class="ch-header">
                 <div class="ch-num" style="background:#dc2626;">5</div>
                 <div>
-                    <div class="ch-label" style="color:#dc2626;">Core Flow</div>
+                    <!-- <div class="ch-label" style="color:#dc2626;">Core Flow</div> -->
                     <div class="ch-title">Authentication, Authorization &amp; Settlement</div>
-                    <div class="ch-desc">The most important section — applies to every transaction.</div>
+                    <!-- <div class="ch-desc">The most important section — applies to every transaction.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -2518,9 +2560,9 @@ Double:     8   6   2   16  0   8   12  12</pre>
             <div class="ch-header">
                 <div class="ch-num" style="background:#059669;">6</div>
                 <div>
-                    <div class="ch-label" style="color:#059669;">Transaction Types</div>
+                    <div class="ch-label" style="color:#059669;"></div>
                     <div class="ch-title">Real Business Logic</div>
-                    <div class="ch-desc">All types available in Authorize.net.</div>
+                    <!-- <div class="ch-desc">All types available in Authorize.net.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -2606,9 +2648,9 @@ Double:     8   6   2   16  0   8   12  12</pre>
             <div class="ch-header">
                 <div class="ch-num" style="background:#7c3aed;">7</div>
                 <div>
-                    <div class="ch-label" style="color:#7c3aed;">Visualization</div>
+                    <!-- <div class="ch-label" style="color:#7c3aed;">Visualization</div> -->
                     <div class="ch-title">End-to-End Payment Flow</div>
-                    <div class="ch-desc">Complete journey from customer to merchant's bank.</div>
+                    <!-- <div class="ch-desc">Complete journey from customer to merchant's bank.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -2727,9 +2769,9 @@ Double:     8   6   2   16  0   8   12  12</pre>
             <div class="ch-header">
                 <div class="ch-num" style="background:#2563eb;">8</div>
                 <div>
-                    <div class="ch-label" style="color:#2563eb;">Our Gateway</div>
+                    <!-- <div class="ch-label" style="color:#2563eb;">Our Gateway</div> -->
                     <div class="ch-title">Authorize.net — System Details</div>
-                    <div class="ch-desc">Specific details for our payment integration.</div>
+                    <!-- <div class="ch-desc">Specific details for our payment integration.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -2763,7 +2805,7 @@ Double:     8   6   2   16  0   8   12  12</pre>
                     </div>
                     <div class="callout cb"><strong>Key Credentials</strong>
                         <p>Each environment has its own <strong>API Login ID</strong> and <strong>Transaction
-                                Key</strong>. Never mix test and live credentials.</p>
+                                Key</strong>Never mix test and live credentials.</p>
                     </div>
                 </div>
                 <hr class="divider" />
@@ -2806,9 +2848,9 @@ Double:     8   6   2   16  0   8   12  12</pre>
             <div class="ch-header">
                 <div class="ch-num" style="background:#0d9488;">9</div>
                 <div>
-                    <div class="ch-label" style="color:#0d9488;">ACH Payment Method</div>
+                    <!-- <div class="ch-label" style="color:#0d9488;">ACH Payment Method</div> -->
                     <div class="ch-title">Automated Clearing House (ACH)</div>
-                    <div class="ch-desc">Bank-to-bank electronic transfer — no card networks involved.</div>
+                    <!-- <div class="ch-desc">Bank-to-bank electronic transfer — no card networks involved.</div> -->
                 </div>
             </div>
             <div class="block">
@@ -3059,9 +3101,7 @@ Double:     8   6   2   16  0   8   12  12</pre>
 
         <!-- Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢ SECTION B Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢ -->
         <div class="section-banner sb-green" id="section-b" style="margin-top:40px;">
-            <div class="sb-num">B</div>
             <div>
-                <div class="sb-label">Section B</div>
                 <div class="sb-title">Checks &amp; Check Format</div>
                 <div class="sb-desc">Paper-based payment instruments — widely used in US B2B and real estate</div>
             </div>
@@ -3490,9 +3530,7 @@ Double:     8   6   2   16  0   8   12  12</pre>
 
         <!-- Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢ SECTION C Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢Ã¢â€¢ -->
         <div class="section-banner sb-purple" id="section-c" style="margin-top:40px;">
-            <div class="sb-num">C</div>
             <div>
-                <div class="sb-label">Section C</div>
                 <div class="sb-title">End-to-End Storyline</div>
                 <div class="sb-desc">A real-world payment scenario — connecting all concepts together</div>
             </div>
@@ -3729,16 +3767,14 @@ Double:     8   6   2   16  0   8   12  12</pre>
         </div>
 
         <!-- SECTION E -->
-        <div class="section-banner sb-valor" id="section-e" style="margin-top:40px;">
+        <!-- <div class="section-banner sb-valor" id="section-e" style="margin-top:40px;">
             <a href="valor.html" style="text-decoration:none; color:inherit; display:block;">
-                <div class="sb-num">E</div>
                 <div>
-                    <div class="sb-label">Section E</div>
                     <div class="sb-title">Valor PayTech</div>
                     <div class="sb-desc">Complete training guide for Valor PayTech payment platform</div>
                 </div>
             </a>
-        </div>
+        </div> -->
 
 </div><!-- /main -->
 
