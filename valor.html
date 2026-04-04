@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Valor PayTech — Complete Training Guide</title>
+<title>Valor PayTech</title>
 <style>
 :root {
   --bg:#f4f6fb; --white:#fff; --surface:#eef0f7; --border:#dde1ed;
@@ -27,62 +27,62 @@ body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-ser
 
 /* ─── SIDEBAR ─── */
 .sidebar{position:fixed;top:0;left:0;bottom:0;width:250px;background:var(--white);border-right:1px solid var(--border);overflow-y:auto;z-index:200;display:flex;flex-direction:column;}
-.sidebar-logo{padding:15px 15px 12px;border-bottom:1px solid var(--border-light);background:linear-gradient(135deg,#0a3d91,#00b09b);}
-.sidebar-logo-tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);}
-.sidebar-logo-title{font-size:14px;font-weight:800;color:white;margin-top:2px;}
+.sidebar-logo{padding:15px 15px 12px;border-bottom:1px solid var(--border-light);background:var(--surface);}
+.sidebar-logo-tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.sidebar-logo-title{font-size:14px;font-weight:800;color:var(--text);margin-top:2px;}
 .sidebar-nav{padding:6px 0 24px;flex:1;}
 
-.nav-acc-header{display:flex;align-items:center;gap:8px;padding:9px 13px 7px;cursor:pointer;user-select:none;border-left:3px solid transparent;transition:all .15s;}
-.nav-acc-header:hover{background:var(--bg);}
-.nav-acc-header.open{background:var(--blue-light);border-left-color:var(--blue);}
-.nav-acc-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0;}
-.nav-acc-label{font-size:9.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--text);flex:1;}
-.nav-acc-arrow{font-size:9px;color:var(--light-text);transition:transform .2s;}
+.nav-acc-header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 14px;cursor:pointer;user-select:none;border-left:3px solid transparent;transition:all .15s;}
+.nav-acc-header:hover{background:var(--surface);}
+.nav-acc-header.open{background:var(--surface);border-left-color:var(--border);}
+.nav-acc-label{flex:1;}
+.nav-acc-dot{display:none;}
+.nav-dot{display:none;}
+.nav-divider{height:1px;background:var(--border-light);margin:6px 0;}
+
+.nav-acc-arrow{font-size:10px;color:var(--text);transition:transform .2s;}
 .nav-acc-header.open .nav-acc-arrow{transform:rotate(90deg);}
 .nav-acc-body{overflow:hidden;max-height:0;transition:max-height .3s ease;}
 .nav-acc-body.open{max-height:1400px;}
 
-.nav-chapter{padding:4px 12px 2px 28px;font-size:8.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--light-text);margin-top:3px;}
-.nav-item{display:flex;align-items:center;gap:6px;padding:4px 12px 4px 28px;text-decoration:none;color:var(--muted);font-size:11.5px;transition:all .15s;border-left:2px solid transparent;margin-left:3px;}
-.nav-item:hover{color:var(--blue);background:var(--blue-light);border-left-color:var(--blue);}
-.nav-item.active{color:var(--blue);background:var(--blue-light);border-left-color:var(--blue);font-weight:700;}
-.nav-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
-.nav-divider{height:1px;background:var(--border-light);margin:5px 12px;}
+.nav-item{display:block;padding:10px 14px;text-decoration:none;color:var(--text);font-size:12px;border-left:3px solid transparent;transition:all .15s;white-space:normal;}
+.nav-item:hover{background:var(--surface);color:var(--text);border-left-color:var(--border);}
+.nav-item.active{background:var(--surface);color:var(--text);border-left-color:var(--border);font-weight:700;}
 
 /* ─── MAIN ─── */
 .main{margin-left:250px;width:calc(100% - 250px);max-width:none;padding:30px 40px 80px;}
 
 /* ─── HERO ─── */
-.hero{background:var(--valor-grad);border-radius:14px;padding:32px 36px;margin-bottom:28px;color:white;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.05);}
-.hero::after{content:'';position:absolute;bottom:-30px;left:30%;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.04);}
-.hero-tag{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px;}
+.hero{background:var(--surface);border-radius:14px;padding:32px 36px;margin-bottom:28px;color:var(--text);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:240px;height:240px;border-radius:50%;background:rgba(26,29,46,.04);}
+.hero::after{content:'';position:absolute;bottom:-30px;left:30%;width:180px;height:180px;border-radius:50%;background:rgba(26,29,46,.03);}
+.hero-tag{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:8px;}
 .hero h1{font-size:26px;font-weight:800;line-height:1.15;margin-bottom:7px;position:relative;}
-.hero h1 span{color:#6ee7b7;}
-.hero p{font-size:12.5px;color:rgba(255,255,255,.65);max-width:540px;position:relative;margin-bottom:18px;}
+.hero h1 span{color:var(--text);}
+.hero p{font-size:12.5px;color:var(--text);max-width:540px;position:relative;margin-bottom:18px;}
 .hero-badges{display:flex;flex-wrap:wrap;gap:6px;position:relative;}
-.hbadge{padding:4px 11px;border-radius:6px;font-size:10px;font-weight:700;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.85);}
+.hbadge{padding:4px 11px;border-radius:6px;font-size:10px;font-weight:700;background:var(--surface);border:1px solid var(--border);color:var(--text);}
 
 /* ─── SECTION BANNER ─── */
 .section-banner{border-radius:12px;padding:20px 24px;margin:26px 0 18px;display:flex;align-items:center;gap:16px;}
-.sb-valor{background:var(--valor-grad);color:white;}
-.sb-teal{background:linear-gradient(135deg,#134e4a,#0d9488);color:white;}
-.sb-blue{background:linear-gradient(135deg,#1e40af,#2563eb);color:white;}
-.sb-purple{background:linear-gradient(135deg,#4c1d95,#7c3aed);color:white;}
-.sb-rose{background:linear-gradient(135deg,#9f1239,#e11d48);color:white;}
-.sb-amber{background:linear-gradient(135deg,#92400e,#d97706);color:white;}
-.sb-green{background:linear-gradient(135deg,#065f46,#059669);color:white;}
-.sb-indigo{background:linear-gradient(135deg,#3730a3,#4f46e5);color:white;}
-.sb-slate{background:linear-gradient(135deg,#1e293b,#475569);color:white;}
-.sb-num{width:44px;height:44px;border-radius:9px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0;}
-.sb-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-bottom:2px;}
-.sb-title{font-size:17px;font-weight:800;line-height:1.15;}
-.sb-desc{font-size:11.5px;opacity:.7;margin-top:2px;}
+.sb-valor{background:var(--surface);color:var(--text);}
+.sb-teal{background:var(--surface);color:var(--text);}
+.sb-blue{background:var(--surface);color:var(--text);}
+.sb-purple{background:var(--surface);color:var(--text);}
+.sb-rose{background:var(--surface);color:var(--text);}
+.sb-amber{background:var(--surface);color:var(--text);}
+.sb-green{background:var(--surface);color:var(--text);}
+.sb-indigo{background:var(--surface);color:var(--text);}
+.sb-slate{background:var(--surface);color:var(--text);}
+.sb-num{width:44px;height:44px;border-radius:9px;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;flex-shrink:0;color:var(--text);}
+.sb-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:1;margin-bottom:2px;color:var(--muted);}
+.sb-title{font-size:17px;font-weight:800;line-height:1.15;color:var(--text);}
+.sb-desc{font-size:11.5px;opacity:1;margin-top:2px;color:var(--muted);}
 
 /* ─── CHAPTER ─── */
 .ch-header{display:flex;align-items:flex-start;gap:11px;margin:22px 0 13px;}
-.ch-num{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:white;flex-shrink:0;}
-.ch-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1px;}
+.ch-num{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--text);flex-shrink:0;background:var(--surface) !important;border:1px solid var(--border);}
+.ch-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1px;display:none;color:var(--text) !important;}
 .ch-title{font-size:16px;font-weight:800;color:var(--text);line-height:1.2;}
 .ch-desc{font-size:11.5px;color:var(--muted);margin-top:2px;}
 
@@ -104,14 +104,14 @@ body{background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-ser
 .card p,.card li{font-size:11.5px;color:var(--muted);}
 .card ul{margin-left:14px;}
 .card ul li{margin-bottom:2px;}
-.card-blue{border-left:3px solid var(--blue);background:var(--blue-light);}
-.card-green{border-left:3px solid var(--green);background:var(--green-light);}
-.card-amber{border-left:3px solid var(--amber);background:var(--amber-light);}
-.card-rose{border-left:3px solid var(--rose);background:var(--rose-light);}
-.card-indigo{border-left:3px solid var(--indigo);background:var(--indigo-light);}
-.card-teal{border-left:3px solid var(--teal);background:var(--teal-light);}
-.card-purple{border-left:3px solid var(--purple);background:var(--purple-light);}
-.card-valor{border-left:3px solid var(--valor-blue);background:#eff6ff;}
+.card-blue{border-left:3px solid var(--border);background:var(--white);}
+.card-green{border-left:3px solid var(--border);background:var(--white);}
+.card-amber{border-left:3px solid var(--border);background:var(--white);}
+.card-rose{border-left:3px solid var(--border);background:var(--white);}
+.card-indigo{border-left:3px solid var(--border);background:var(--white);}
+.card-teal{border-left:3px solid var(--border);background:var(--white);}
+.card-purple{border-left:3px solid var(--border);background:var(--white);}
+.card-valor{border-left:3px solid var(--border);background:var(--white);}
 
 /* ─── TABLE ─── */
 table{width:100%;border-collapse:collapse;font-size:12px;}
@@ -144,14 +144,52 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 .t-valor{background:#dbeafe;color:var(--valor-blue);}
 
 /* ─── FLOW ─── */
-.flow{display:flex;flex-direction:column;}
-.flow-item{display:flex;gap:11px;align-items:flex-start;padding-bottom:13px;position:relative;}
-.flow-item:last-child{padding-bottom:0;}
-.fc{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:white;flex-shrink:0;position:relative;z-index:1;}
-.flow-item:not(:last-child) .fc::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);width:2px;height:13px;background:var(--border);}
-.fb{padding-top:3px;flex:1;}
+.flow{display:flex;flex-wrap:wrap;gap:12px;}
+.flow-item{display:flex;gap:11px;align-items:flex-start;padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:12px;position:relative;flex:1 1 calc(33.333% - 12px);min-width:220px;}
+.flow-item:last-child{padding-bottom:14px;}
+.fc{min-width:36px;height:auto;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:8px 10px;font-size:11px;font-weight:700;color:var(--text);background:var(--surface);border:1px solid var(--border);flex-shrink:0;position:relative;z-index:1;}
+.flow-item:not(:last-child) .fc::after{display:none;}
+.fb{padding-top:0;flex:1;}
 .fb strong{color:var(--text);font-size:12px;display:block;margin-bottom:1px;}
 .fb span{color:var(--muted);font-size:11px;}
+
+.ch-num, .bt-num, .fc, .cred-key, .hbadge, .vault-badge, .err-code, .bt-num{background:var(--surface) !important;color:var(--text) !important;border:1px solid var(--border) !important;}
+.ch-num{border-radius:8px !important;}
+.bt-num{border-radius:6px !important;padding:6px 8px !important;font-size:11px !important;}
+.hero{background:var(--surface) !important;color:var(--text) !important;}
+.hero::before{background:rgba(26,29,46,.04) !important;}
+.hero::after{background:rgba(26,29,46,.03) !important;}
+.hero-tag, .hero h1, .hero p, .hbadge{color:var(--text) !important;}
+.hero h1 span{color:var(--text) !important;}
+.module-card:hover{border-color:var(--border) !important;transform:none !important;}
+.cred-card::before{background:var(--border) !important;}
+.cc1::before,.cc2::before,.cc3::before,.cc4::before{background:var(--border) !important;}
+.cred-key{background:var(--surface) !important;color:var(--text) !important;}
+.mode-test,.mode-live{background:var(--surface) !important;border:1px solid var(--border) !important;}
+.mb-test,.mb-live{background:var(--surface) !important;color:var(--text) !important;}
+.mode-test h4,.mode-live h4{color:var(--text) !important;}
+.mode-test li,.mode-live li{color:var(--text) !important;}
+.vault-badge{background:var(--surface) !important;color:var(--text) !important;border:1px solid var(--border) !important;}
+.txn-card::before{background:var(--border) !important;}
+.err-code{background:var(--surface) !important;color:var(--text) !important;border-color:var(--border) !important;}
+.score-spec{background:var(--border) !important;}
+.code-block{background:var(--surface) !important;}
+.code-block pre{color:var(--text) !important;}
+.ck,.cv2,.cs,.cc{color:var(--text) !important;}
+.tag, .t-blue, .t-green, .t-amber, .t-rose, .t-slate, .t-purple, .t-teal, .t-valor{background:var(--surface) !important;color:var(--text) !important;}
+
+.code-block, .code-block pre, .code-block pre code, td code {background:var(--surface) !important;color:var(--text) !important;}
+.ck,.cv2,.cs,.cc{color:var(--text) !important;}
+.module-card:hover{border-color:var(--border) !important;transform:none !important;}
+.cred-card::before, .cc1::before, .cc2::before, .cc3::before, .cc4::before,
+.txn-card::before, .tc1::before, .tc2::before, .tc3::before, .tc4::before, .tc5::before, .tc6::before, .tc7::before, .tc8::before,
+.vault-badge{background:var(--surface) !important;color:var(--text) !important;border-color:var(--border) !important;}
+.cred-key{color:var(--text) !important;background:var(--surface) !important;border-color:var(--border) !important;}
+.mode-test, .mode-live, .mb-test, .mb-live, .mode-test h4, .mode-live h4, .mode-test li, .mode-live li{background:var(--surface) !important;border-color:var(--border) !important;color:var(--text) !important;}
+.cb, .ca, .cg, .cr, .cp, .ct, .cv{background:var(--surface) !important;border:1px solid var(--border) !important;color:var(--text) !important;}
+.cb strong, .ca strong, .cg strong, .cr strong, .cp strong, .ct strong, .cv strong,
+.cb p, .ca p, .cg p, .cr p, .cp p, .ct p, .cv p{color:var(--text) !important;}
+.cred-card::before, .txn-card::before{background:var(--border) !important;}
 
 /* ─── BIG FLOW ─── */
 .big-flow{display:flex;align-items:center;flex-wrap:wrap;gap:0;margin-top:12px;}
@@ -260,15 +298,15 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 <!-- ══ SIDEBAR ══ -->
 <nav class="sidebar">
   <div class="sidebar-logo">
-    <div class="sidebar-logo-tag">Training Guide</div>
-    <div class="sidebar-logo-title">⚡ Valor PayTech</div>
+    <!-- <div class="sidebar-logo-tag">Training Guide</div> -->
+    <div class="sidebar-logo-title"> Valor PayTech</div>
   </div>
   <div class="sidebar-nav">
 
     <div class="nav-accordion">
       <div class="nav-acc-header open" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#0a3d91;"></div>
-        <div class="nav-acc-label">1. Overview</div>
+        <div class="nav-acc-label">Overview</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body open">
@@ -282,7 +320,7 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="nav-accordion">
       <div class="nav-acc-header" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#0d9488;"></div>
-        <div class="nav-acc-label">2. Portal &amp; Interface</div>
+        <div class="nav-acc-label">Portal &amp; Interface</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body">
@@ -298,7 +336,7 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="nav-accordion">
       <div class="nav-acc-header" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#2563eb;"></div>
-        <div class="nav-acc-label">3. API &amp; Integration</div>
+        <div class="nav-acc-label">API &amp; Integration</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body">
@@ -313,7 +351,7 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="nav-accordion">
       <div class="nav-acc-header" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#7c3aed;"></div>
-        <div class="nav-acc-label">4. Vault &amp; Tokenization</div>
+        <div class="nav-acc-label">Vault &amp; Tokenization</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body">
@@ -328,7 +366,7 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="nav-accordion">
       <div class="nav-acc-header" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#e11d48;"></div>
-        <div class="nav-acc-label">5. Fraud &amp; Security</div>
+        <div class="nav-acc-label">Fraud &amp; Security</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body">
@@ -341,7 +379,7 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="nav-accordion">
       <div class="nav-acc-header" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#059669;"></div>
-        <div class="nav-acc-label">6. Transaction Types</div>
+        <div class="nav-acc-label">Transaction Types</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body">
@@ -353,7 +391,7 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="nav-accordion">
       <div class="nav-acc-header" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#0d9488;"></div>
-        <div class="nav-acc-label">7. ACH &amp; Recurring</div>
+        <div class="nav-acc-label">ACH &amp; Recurring</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body">
@@ -366,7 +404,7 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="nav-accordion">
       <div class="nav-acc-header" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#4f46e5;"></div>
-        <div class="nav-acc-label">8. Reporting</div>
+        <div class="nav-acc-label">Reporting</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body">
@@ -378,7 +416,7 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="nav-accordion">
       <div class="nav-acc-header" onclick="toggleAcc(this)">
         <div class="nav-acc-dot" style="background:#d97706;"></div>
-        <div class="nav-acc-label">9. Errors &amp; Support</div>
+        <div class="nav-acc-label">Errors &amp; Support</div>
         <span class="nav-acc-arrow">▾</span>
       </div>
       <div class="nav-acc-body">
@@ -392,33 +430,23 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 <!-- ══ MAIN ══ -->
 <div class="main">
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-tag">📘 Internal Training Document — Valor PayTech</div>
-  <h1>Mastering <span>Valor PayTech</span></h1>
-  <p>A complete visual guide for new team members — portal navigation, API integration, The Vault, tokenization, fraud tools, ACH, recurring billing, reporting, and common errors.</p>
-  <div class="hero-badges">
-    <span class="hbadge">🏛️ Payment Gateway</span>
-    <span class="hbadge">🔐 PCI DSS Compliant</span>
-    <span class="hbadge">🔒 The Vault — Tokenization</span>
-    <span class="hbadge">🔁 Recurring Billing</span>
-    <span class="hbadge">🏦 ACH / eCheck</span>
-    <span class="hbadge">🛡️ Valor Shield RT</span>
-    <span class="hbadge">💻 Virtual Terminal</span>
-  </div>
-</div>
-
 
 <!-- ══════════ SECTION 1 — OVERVIEW ══════════ -->
 <div class="section-banner sb-valor">
-  <div class="sb-num">1</div>
-  <div><div class="sb-label">Section 1</div><div class="sb-title">Overview — What Is Valor PayTech?</div><div class="sb-desc">The platform, how it works, and all its main products</div></div>
+  <!-- <div class="sb-num">1</div> -->
+  <div>
+    <!-- <div class="sb-label">Section 1</div> -->
+    <div class="sb-title">Overview — What Is Valor PayTech?</div>
+   <!-- <div class="sb-desc">The platform, how it works, and all its main products</div> -->
+  </div>
 </div>
 
 <div id="what">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0a3d91;">1</div>
-    <div><div class="ch-label" style="color:#0a3d91;">Foundation</div><div class="ch-title">What Is Valor PayTech?</div><div class="ch-desc">Understanding the company, platform, and who it serves.</div></div>
+    <!-- <div class="ch-num" style="background:#0a3d91;">1</div> -->
+    <div><div class="ch-label" style="color:#0a3d91;">Foundation</div><div class="ch-title">What Is Valor PayTech?</div>
+    <!-- <div class="ch-desc">Understanding the company, platform, and who it serves.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="img-row">
@@ -457,8 +485,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="how">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0a3d91;">2</div>
-    <div><div class="ch-label" style="color:#0a3d91;">How It Works</div><div class="ch-title">How Valor Works — The Full Picture</div><div class="ch-desc">End-to-end flow from merchant to bank.</div></div>
+    <!-- <div class="ch-num" style="background:#0a3d91;">2</div> -->
+    <div><div class="ch-label" style="color:#0a3d91;">How It Works</div><div class="ch-title">How Valor Works — The Full Picture</div>
+    <!-- <div class="ch-desc">End-to-end flow from merchant to bank.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="big-flow">
@@ -497,8 +527,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="modules">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0a3d91;">3</div>
-    <div><div class="ch-label" style="color:#0a3d91;">Products</div><div class="ch-title">Main Products &amp; Modules</div><div class="ch-desc">Everything available inside the Valor portal.</div></div>
+    <!-- <div class="ch-num" style="background:#0a3d91;">3</div> -->
+    <div><div class="ch-label" style="color:#0a3d91;">Products</div><div class="ch-title">Main Products &amp; Modules</div>
+    <!-- <div class="ch-desc">Everything available inside the Valor portal.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="module-grid">
@@ -525,14 +557,21 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <!-- ══════════ SECTION 2 — PORTAL ══════════ -->
 <div class="section-banner sb-teal">
-  <div class="sb-num">2</div>
-  <div><div class="sb-label">Section 2</div><div class="sb-title">Portal &amp; Merchant Interface</div><div class="sb-desc">Dashboard, transactions, virtual terminal, settings, and reports</div></div>
+  <!-- <div class="sb-num">2</div> -->
+  <div>
+    <!-- <div class="sb-label">Section 2</div> -->
+    <div class="sb-title">Portal &amp; Merchant Interface</div>
+    <!-- <div class="sb-desc">Dashboard, transactions, virtual terminal, settings, and reports</div> -->
+  </div>
 </div>
 
 <div id="dashboard">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0d9488;">4</div>
-    <div><div class="ch-label" style="color:#0d9488;">Portal</div><div class="ch-title">Dashboard / Home Screen</div><div class="ch-desc">The first screen after login — your real-time payment overview.</div></div>
+    <!-- <div class="ch-num" style="background:#0d9488;">4</div> -->
+    <div><div class="ch-label" style="color:#0d9488;">Portal</div>
+    <div class="ch-title">Dashboard / Home Screen</div>
+    <!-- <div class="ch-desc">The first screen after login — your real-time payment overview.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="dashboard-mock">
@@ -585,8 +624,11 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="transactions">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0d9488;">5</div>
-    <div><div class="ch-label" style="color:#0d9488;">Transactions</div><div class="ch-title">Transactions Module</div><div class="ch-desc">View, search, void, refund, and manage all transactions.</div></div>
+    <!-- <div class="ch-num" style="background:#0d9488;">5</div> -->
+    <div><div class="ch-label" style="color:#0d9488;">Transactions</div>
+    <div class="ch-title">Transactions Module</div>
+    <!-- <div class="ch-desc">View, search, void, refund, and manage all transactions.</div> -->
+  </div>
   </div>
   <div class="block">
     <p style="color:var(--muted);font-size:12.5px;margin-bottom:12px;">The Transactions module is your <strong style="color:var(--text);">master list of all payments</strong>. Every sale, refund, void, recurring payment, and authorization appears here.</p>
@@ -633,8 +675,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="virtual-terminal">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0d9488;">6</div>
-    <div><div class="ch-label" style="color:#0d9488;">Virtual Terminal</div><div class="ch-title">Virtual Terminal — Process Payments Without Hardware</div><div class="ch-desc">Type in card details and process any payment type directly from the browser.</div></div>
+    <!-- <div class="ch-num" style="background:#0d9488;">6</div> -->
+    <div><div class="ch-label" style="color:#0d9488;">Virtual Terminal</div><div class="ch-title">Virtual Terminal — Process Payments Without Hardware</div>
+    <!-- <div class="ch-desc">Type in card details and process any payment type directly from the browser.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="img-row">
@@ -667,8 +711,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="settings">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0d9488;">7</div>
-    <div><div class="ch-label" style="color:#0d9488;">Settings</div><div class="ch-title">Settings &amp; Merchant Configuration</div><div class="ch-desc">Where you configure your account, stores, taxes, tips, and more.</div></div>
+    <!-- <div class="ch-num" style="background:#0d9488;">7</div> -->
+    <div><div class="ch-label" style="color:#0d9488;">Settings</div><div class="ch-title">Settings &amp; Merchant Configuration</div>
+    <!-- <div class="ch-desc">Where you configure your account, stores, taxes, tips, and more.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="g2">
@@ -682,8 +728,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="reports">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0d9488;">8</div>
-    <div><div class="ch-label" style="color:#0d9488;">Reports</div><div class="ch-title">Reports &amp; Batch Search</div><div class="ch-desc">Find settled batches, daily totals, and reconcile deposits.</div></div>
+    <!-- <div class="ch-num" style="background:#0d9488;">8</div> -->
+    <div><div class="ch-label" style="color:#0d9488;">Reports</div><div class="ch-title">Reports &amp; Batch Search</div>
+    <!-- <div class="ch-desc">Find settled batches, daily totals, and reconcile deposits.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="g2">
@@ -699,14 +747,22 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <!-- ══════════ SECTION 3 — API ══════════ -->
 <div class="section-banner sb-blue">
-  <div class="sb-num">3</div>
-  <div><div class="sb-label">Section 3</div><div class="sb-title">API &amp; Integration</div><div class="sb-desc">Base URLs, API keys, sample requests, webhooks — everything for developers</div></div>
+  <!-- <div class="sb-num">3</div> -->
+  <div>
+    <!-- <div class="sb-label">Section 3</div> -->
+    <div class="sb-title">API &amp; Integration</div>
+    <!-- <div class="sb-desc">Base URLs, API keys, sample requests, webhooks — everything for developers</div> -->
+  </div>
 </div>
 
 <div id="api-basics">
   <div class="ch-header">
-    <div class="ch-num" style="background:#2563eb;">9</div>
-    <div><div class="ch-label" style="color:#2563eb;">API Basics</div><div class="ch-title">API Basics &amp; Base URLs</div><div class="ch-desc">Sandbox for testing, production for live transactions.</div></div>
+    <!-- <div class="ch-num" style="background:#2563eb;">9</div> -->
+    <div>
+      <div class="ch-label" style="color:#2563eb;">API Basics</div>
+      <div class="ch-title">API Basics &amp; Base URLs</div>
+      <!--  <div class="ch-desc">Sandbox for testing, production for live transactions.</div> -->
+      </div>
   </div>
   <div class="block">
     <p style="color:var(--muted);font-size:12.5px;margin-bottom:12px;">Valor PayTech provides a <strong style="color:var(--text);">REST API</strong> for developers to integrate payment processing directly into websites, mobile apps, and third-party ERP/POS systems. All requests use <strong style="color:var(--text);">JSON</strong> format.</p>
@@ -741,8 +797,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="api-keys">
   <div class="ch-header">
-    <div class="ch-num" style="background:#2563eb;">10</div>
-    <div><div class="ch-label" style="color:#2563eb;">Credentials</div><div class="ch-title">API Keys &amp; Credentials — How to Find &amp; Generate</div><div class="ch-desc">The four key values you need for every integration.</div></div>
+    <!-- <div class="ch-num" style="background:#2563eb;">10</div> -->
+    <div><div class="ch-label" style="color:#2563eb;">Credentials</div><div class="ch-title">API Keys &amp; Credentials — How to Find &amp; Generate</div>
+    <!-- <div class="ch-desc">The four key values you need for every integration.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="img-row">
@@ -814,8 +872,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="api-request">
   <div class="ch-header">
-    <div class="ch-num" style="background:#2563eb;">11</div>
-    <div><div class="ch-label" style="color:#2563eb;">API Requests</div><div class="ch-title">Sample API Requests</div><div class="ch-desc">Sale, Auth Only, Capture, Void, Refund, and Vault Token transactions.</div></div>
+    <!-- <div class="ch-num" style="background:#2563eb;">11</div> -->
+    <div><div class="ch-label" style="color:#2563eb;">API Requests</div><div class="ch-title">Sample API Requests</div>
+    <!-- <div class="ch-desc">Sale, Auth Only, Capture, Void, Refund, and Vault Token transactions.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="block-title"><div class="bt-num" style="background:#2563eb;">1</div>Sale (Auth + Capture Immediately)</div>
@@ -894,8 +954,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="webhooks">
   <div class="ch-header">
-    <div class="ch-num" style="background:#2563eb;">12</div>
-    <div><div class="ch-label" style="color:#2563eb;">Webhooks</div><div class="ch-title">Webhooks &amp; Callbacks</div><div class="ch-desc">Get notified automatically when payment events occur.</div></div>
+    <!-- <div class="ch-num" style="background:#2563eb;">12</div> -->
+    <div><div class="ch-label" style="color:#2563eb;">Webhooks</div><div class="ch-title">Webhooks &amp; Callbacks</div>
+    <!-- <div class="ch-desc">Get notified automatically when payment events occur.</div> -->
+  </div>
   </div>
   <div class="block">
     <p style="color:var(--muted);font-size:12.5px;margin-bottom:12px;">Webhooks allow Valor to send real-time HTTP POST notifications to your server when events happen — a transaction completes, a recurring payment fails, a chargeback is filed, etc.</p>
@@ -910,14 +972,20 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <!-- ══════════ SECTION 4 — VAULT ══════════ -->
 <div class="section-banner sb-purple">
-  <div class="sb-num">4</div>
-  <div><div class="sb-label">Section 4</div><div class="sb-title">The Vault &amp; Tokenization</div><div class="sb-desc">Securely store customer cards — charge later without re-entering card details</div></div>
+  <!-- <div class="sb-num">4</div> -->
+  <div>
+    <!-- <div class="sb-label">Section 4</div> -->
+  <div class="sb-title">The Vault &amp; Tokenization</div>
+  <!-- <div class="sb-desc">Securely store customer cards — charge later without re-entering card details</div> -->
+</div>
 </div>
 
 <div id="vault-overview">
   <div class="ch-header">
-    <div class="ch-num" style="background:#7c3aed;">13</div>
-    <div><div class="ch-label" style="color:#7c3aed;">The Vault</div><div class="ch-title">The Vault — Overview &amp; Benefits</div><div class="ch-desc">PCI-compliant tokenization — store cards safely, charge without CVV.</div></div>
+    <!-- <div class="ch-num" style="background:#7c3aed;">13</div> -->
+    <div><div class="ch-label" style="color:#7c3aed;">The Vault</div><div class="ch-title">The Vault — Overview &amp; Benefits</div>
+    <!-- <div class="ch-desc">PCI-compliant tokenization — store cards safely, charge without CVV.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="img-row">
@@ -940,8 +1008,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="vault-add">
   <div class="ch-header">
-    <div class="ch-num" style="background:#7c3aed;">14</div>
-    <div><div class="ch-label" style="color:#7c3aed;">Adding Customers</div><div class="ch-title">Adding Customers to The Vault</div><div class="ch-desc">Two methods — manual entry or from existing transactions.</div></div>
+    <!-- <div class="ch-num" style="background:#7c3aed;">14</div> -->
+    <div><div class="ch-label" style="color:#7c3aed;">Adding Customers</div><div class="ch-title">Adding Customers to The Vault</div>
+    <!-- <div class="ch-desc">Two methods — manual entry or from existing transactions.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="g2">
@@ -971,8 +1041,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="vault-manage">
   <div class="ch-header">
-    <div class="ch-num" style="background:#7c3aed;">15</div>
-    <div><div class="ch-label" style="color:#7c3aed;">Managing</div><div class="ch-title">Managing Vault Customers &amp; Processing</div><div class="ch-desc">View, edit, process, and delete Vault customer records.</div></div>
+    <!-- <div class="ch-num" style="background:#7c3aed;">15</div> -->
+    <div><div class="ch-label" style="color:#7c3aed;">Managing</div><div class="ch-title">Managing Vault Customers &amp; Processing</div>
+    <!-- <div class="ch-desc">View, edit, process, and delete Vault customer records.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="block-title"><div class="bt-num" style="background:#7c3aed;">→</div>List Customer Page — Actions Available (⋮ menu)</div>
@@ -993,8 +1065,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="vault-recurring">
   <div class="ch-header">
-    <div class="ch-num" style="background:#7c3aed;">16</div>
-    <div><div class="ch-label" style="color:#7c3aed;">Recurring</div><div class="ch-title">Recurring Billing via The Vault</div><div class="ch-desc">Automated subscription payments using stored tokens.</div></div>
+    <!-- <div class="ch-num" style="background:#7c3aed;">16</div> -->
+    <div><div class="ch-label" style="color:#7c3aed;">Recurring</div><div class="ch-title">Recurring Billing via The Vault</div>
+    <!-- <div class="ch-desc">Automated subscription payments using stored tokens.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="g2">
@@ -1016,14 +1090,20 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <!-- ══════════ SECTION 5 — FRAUD ══════════ -->
 <div class="section-banner sb-rose">
-  <div class="sb-num">5</div>
-  <div><div class="sb-label">Section 5</div><div class="sb-title">Fraud &amp; Security</div><div class="sb-desc">Valor Shield RT, AVS, CVV, PCI DSS, and encryption</div></div>
+  <!-- <div class="sb-num">5</div> -->
+  <div>
+    <!-- <div class="sb-label">Section 5</div> -->
+  <div class="sb-title">Fraud &amp; Security</div>
+  <!-- <div class="sb-desc">Valor Shield RT, AVS, CVV, PCI DSS, and encryption</div> -->
+</div>
 </div>
 
 <div id="fraud">
   <div class="ch-header">
-    <div class="ch-num" style="background:#e11d48;">17</div>
-    <div><div class="ch-label" style="color:#e11d48;">Fraud Tools</div><div class="ch-title">Valor Shield RT &amp; Fraud Protection</div><div class="ch-desc">Real-time fraud detection built into every transaction.</div></div>
+    <!-- <div class="ch-num" style="background:#e11d48;">17</div> -->
+    <div><div class="ch-label" style="color:#e11d48;">Fraud Tools</div><div class="ch-title">Valor Shield RT &amp; Fraud Protection</div>
+    <!-- <div class="ch-desc">Real-time fraud detection built into every transaction.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="img-row">
@@ -1061,14 +1141,14 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <div class="block-title"><div class="bt-num" style="background:#e11d48;">→</div>Common Fraud Risk Flags</div>
     <div class="g2">
       <div style="display:flex;flex-direction:column;gap:6px;">
-        <div style="background:var(--rose-light);border:1px solid #fecdd3;border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--rose);">🚨 Velocity Triggers</strong><p style="font-size:11px;color:#9f1239;">Too many transactions from same card or IP in short time — card testing pattern</p></div>
-        <div style="background:var(--rose-light);border:1px solid #fecdd3;border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--rose);">💰 Unusually Large Amount</strong><p style="font-size:11px;color:#9f1239;">Transaction far exceeds merchant's typical average — processor may hold account</p></div>
-        <div style="background:var(--rose-light);border:1px solid #fecdd3;border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--rose);">🌍 Geographic Mismatch</strong><p style="font-size:11px;color:#9f1239;">Card BIN country doesn't match billing address or IP location</p></div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--text);">🚨 Velocity Triggers</strong><p style="font-size:11px;color:var(--text);">Too many transactions from same card or IP in short time — card testing pattern</p></div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--text);">💰 Unusually Large Amount</strong><p style="font-size:11px;color:var(--text);">Transaction far exceeds merchant's typical average — processor may hold account</p></div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--text);">🌍 Geographic Mismatch</strong><p style="font-size:11px;color:var(--text);">Card BIN country doesn't match billing address or IP location</p></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:6px;">
-        <div style="background:var(--amber-light);border:1px solid var(--amber-mid);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--amber);">⚠️ AVS + CVV Both Fail</strong><p style="font-size:11px;color:#92400e;">Both address and CVV mismatch simultaneously — very high risk signal</p></div>
-        <div style="background:var(--amber-light);border:1px solid var(--amber-mid);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--amber);">🔢 Multiple Declines Same Card</strong><p style="font-size:11px;color:#92400e;">Same card declined multiple times — potential stolen card being tested</p></div>
-        <div style="background:var(--amber-light);border:1px solid var(--amber-mid);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--amber);">📱 Card Testing Pattern</strong><p style="font-size:11px;color:#92400e;">Small amounts ($0.01, $1.00) followed by larger charges — confirms card works</p></div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--text);">⚠️ AVS + CVV Both Fail</strong><p style="font-size:11px;color:var(--text);">Both address and CVV mismatch simultaneously — very high risk signal</p></div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--text);">🔢 Multiple Declines Same Card</strong><p style="font-size:11px;color:var(--text);">Same card declined multiple times — potential stolen card being tested</p></div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;"><strong style="font-size:11.5px;color:var(--text);">📱 Card Testing Pattern</strong><p style="font-size:11px;color:var(--text);">Small amounts ($0.01, $1.00) followed by larger charges — confirms card works</p></div>
       </div>
     </div>
   </div>
@@ -1076,8 +1156,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="pci">
   <div class="ch-header">
-    <div class="ch-num" style="background:#e11d48;">18</div>
-    <div><div class="ch-label" style="color:#e11d48;">Security</div><div class="ch-title">PCI DSS &amp; Encryption</div><div class="ch-desc">How Valor keeps card data secure and what it means for merchants.</div></div>
+    <!-- <div class="ch-num" style="background:#e11d48;">18</div> -->
+    <div><div class="ch-label" style="color:#e11d48;">Security</div><div class="ch-title">PCI DSS &amp; Encryption</div>
+    <!-- <div class="ch-desc">How Valor keeps card data secure and what it means for merchants.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="g2">
@@ -1091,14 +1173,21 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <!-- ══════════ SECTION 6 — TRANSACTION TYPES ══════════ -->
 <div class="section-banner sb-green">
-  <div class="sb-num">6</div>
-  <div><div class="sb-label">Section 6</div><div class="sb-title">Transaction Types</div><div class="sb-desc">All transaction types available in Valor and when to use each</div></div>
+  <!-- <div class="sb-num">6</div> -->
+
+  <div>
+    <!-- <div class="sb-label">Section 6</div> -->
+    <div class="sb-title">Transaction Types</div>
+    <!-- <div class="sb-desc">All transaction types available in Valor and when to use each</div> -->
+  </div>
 </div>
 
 <div id="txn-types">
   <div class="ch-header">
-    <div class="ch-num" style="background:#059669;">19</div>
-    <div><div class="ch-label" style="color:#059669;">Types</div><div class="ch-title">All Transaction Types in Valor</div><div class="ch-desc">From sale to refund — every type with use cases.</div></div>
+    <!-- <div class="ch-num" style="background:#059669;">19</div> -->
+    <div><div class="ch-label" style="color:#059669;">Types</div><div class="ch-title">All Transaction Types in Valor</div>
+    <!-- <div class="ch-desc">From sale to refund — every type with use cases.</div> -->
+  </div>
   </div>
   <div class="block">
     <div style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1px solid #bbf7d0;border-radius:8px;padding:11px 13px;margin-bottom:12px;">
@@ -1145,14 +1234,21 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <!-- ══════════ SECTION 7 — ACH ══════════ -->
 <div class="section-banner sb-teal">
-  <div class="sb-num">7</div>
-  <div><div class="sb-label">Section 7</div><div class="sb-title">ACH &amp; Recurring Billing</div><div class="sb-desc">Direct bank transfers, ACH returns, and subscription management</div></div>
+  <!-- <div class="sb-num">7</div> -->
+
+  <div>
+    <!-- <div class="sb-label">Section 7</div> -->
+  <div class="sb-title">ACH &amp; Recurring Billing</div>
+  <!-- <div class="sb-desc">Direct bank transfers, ACH returns, and subscription management</div> -->
+</div>
 </div>
 
 <div id="ach">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0d9488;">20</div>
-    <div><div class="ch-label" style="color:#0d9488;">ACH</div><div class="ch-title">ACH / eCheck Payments in Valor</div><div class="ch-desc">Process bank-to-bank transfers — no card network, lower fees.</div></div>
+    <!-- <div class="ch-num" style="background:#0d9488;">20</div> -->
+    <div><div class="ch-label" style="color:#0d9488;">ACH</div><div class="ch-title">ACH / eCheck Payments in Valor</div>
+    <!-- <div class="ch-desc">Process bank-to-bank transfers — no card network, lower fees.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="g2">
@@ -1180,8 +1276,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <div id="recurring">
   <div class="ch-header">
-    <div class="ch-num" style="background:#0d9488;">21</div>
-    <div><div class="ch-label" style="color:#0d9488;">Recurring</div><div class="ch-title">Recurring &amp; Subscription Management</div><div class="ch-desc">Automated billing schedules — set it up once, Valor charges automatically.</div></div>
+    <!-- <div class="ch-num" style="background:#0d9488;">21</div> -->
+    <div><div class="ch-label" style="color:#0d9488;">Recurring</div><div class="ch-title">Recurring &amp; Subscription Management</div>
+    <!-- <div class="ch-desc">Automated billing schedules — set it up once, Valor charges automatically.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="g2">
@@ -1210,14 +1308,20 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <!-- ══════════ SECTION 8 — REPORTING ══════════ -->
 <div class="section-banner sb-indigo">
-  <div class="sb-num">8</div>
-  <div><div class="sb-label">Section 8</div><div class="sb-title">Reporting &amp; Reconciliation</div><div class="sb-desc">Settled batches, transaction reports, and deposit matching</div></div>
+  <!-- <div class="sb-num">8</div> -->
+  <div>
+    <!-- <div class="sb-label">Section 8</div> -->
+    <div class="sb-title">Reporting &amp; Reconciliation</div>
+    <!-- <div class="sb-desc">Settled batches, transaction reports, and deposit matching</div> -->
+  </div>
 </div>
 
 <div id="reporting">
   <div class="ch-header">
-    <div class="ch-num" style="background:#4f46e5;">22</div>
-    <div><div class="ch-label" style="color:#4f46e5;">Reports</div><div class="ch-title">Reports, Batches &amp; Reconciliation</div><div class="ch-desc">Finding what was charged, what settled, and what hit the bank.</div></div>
+    <!-- <div class="ch-num" style="background:#4f46e5;">22</div> -->
+    <div><div class="ch-label" style="color:#4f46e5;">Reports</div><div class="ch-title">Reports, Batches &amp; Reconciliation</div>
+    <!-- <div class="ch-desc">Finding what was charged, what settled, and what hit the bank.</div> -->
+  </div>
   </div>
   <div class="block">
     <div class="block-title"><div class="bt-num" style="background:#4f46e5;">→</div>Understanding the Batch &amp; Settlement Cycle</div>
@@ -1245,14 +1349,20 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
 
 <!-- ══════════ SECTION 9 — ERRORS ══════════ -->
 <div class="section-banner sb-amber">
-  <div class="sb-num">9</div>
-  <div><div class="sb-label">Section 9</div><div class="sb-title">Common Errors &amp; Support</div><div class="sb-desc">Declines, duplicates, token issues, settlement mismatches, and how to fix them</div></div>
+  <!-- <div class="sb-num">9</div> -->
+  <div>
+    <!-- <div class="sb-label">Section 9</div> -->
+    <div class="sb-title">Common Errors &amp; Support</div>
+    <!-- <div class="sb-desc">Declines, duplicates, token issues, settlement mismatches, and how to fix them</div> -->
+  </div>
 </div>
 
 <div id="errors">
   <div class="ch-header">
-    <div class="ch-num" style="background:#d97706;">23</div>
-    <div><div class="ch-label" style="color:#d97706;">Errors</div><div class="ch-title">Common Errors, Declines &amp; Fixes</div><div class="ch-desc">What goes wrong, why it happens, and exactly what to do about it.</div></div>
+    <!-- <div class="ch-num" style="background:#d97706;">23</div> -->
+    <div><div class="ch-label" style="color:#d97706;">Errors</div><div class="ch-title">Common Errors, Declines &amp; Fixes</div>
+    <!-- <div class="ch-desc">What goes wrong, why it happens, and exactly what to do about it.</div> -->
+  </div>
   </div>
   <div class="block">
 
@@ -1282,10 +1392,10 @@ td code{font-family:'Courier New',monospace;font-size:10.5px;background:#f1f5f9;
     <hr class="divider"/>
     <div class="block-title"><div class="bt-num" style="background:#d97706;">3</div>Vault / Token Issues</div>
     <div style="display:flex;flex-direction:column;gap:6px;">
-      <div class="err-row"><div class="err-code" style="color:var(--amber);background:var(--amber-mid);">TOKEN INVALID</div><div class="err-body"><strong>Token Not Found or Expired</strong><p>Vault customer was deleted, or token was from a different environment (sandbox vs live). Re-add the customer to Vault to get a fresh token.</p></div></div>
-      <div class="err-row"><div class="err-code" style="color:var(--amber);background:var(--amber-mid);">CARD EXPIRED</div><div class="err-body"><strong>Saved Card Has Expired</strong><p>Even in Vault, the underlying card can expire. Go to Vault → Edit Customer → Add new card with updated expiry. Delete the old expired card.</p></div></div>
-      <div class="err-row"><div class="err-code" style="color:var(--amber);background:var(--amber-mid);">CVV REQUIRED</div><div class="err-body"><strong>CVV Prompted Unexpectedly</strong><p>This should not happen for Vault transactions. Check that you're using the Vault token path (not manual card entry) in the Virtual Terminal.</p></div></div>
-      <div class="err-row"><div class="err-code" style="color:var(--amber);background:var(--amber-mid);">VAULT DISABLED</div><div class="err-body"><strong>Module Not Enabled</strong><p>The Vault module was disabled for this merchant or operator. Contact your ISO to re-enable Vault access in the merchant's module settings.</p></div></div>
+      <div class="err-row"><div class="err-code" style="color:var(--text);background:var(--surface);border:1px solid var(--border);">TOKEN INVALID</div><div class="err-body"><strong>Token Not Found or Expired</strong><p>Vault customer was deleted, or token was from a different environment (sandbox vs live). Re-add the customer to Vault to get a fresh token.</p></div></div>
+      <div class="err-row"><div class="err-code" style="color:var(--text);background:var(--surface);border:1px solid var(--border);">CARD EXPIRED</div><div class="err-body"><strong>Saved Card Has Expired</strong><p>Even in Vault, the underlying card can expire. Go to Vault → Edit Customer → Add new card with updated expiry. Delete the old expired card.</p></div></div>
+      <div class="err-row"><div class="err-code" style="color:var(--text);background:var(--surface);border:1px solid var(--border);">CVV REQUIRED</div><div class="err-body"><strong>CVV Prompted Unexpectedly</strong><p>This should not happen for Vault transactions. Check that you're using the Vault token path (not manual card entry) in the Virtual Terminal.</p></div></div>
+      <div class="err-row"><div class="err-code" style="color:var(--text);background:var(--surface);border:1px solid var(--border);">VAULT DISABLED</div><div class="err-body"><strong>Module Not Enabled</strong><p>The Vault module was disabled for this merchant or operator. Contact your ISO to re-enable Vault access in the merchant's module settings.</p></div></div>
     </div>
 
     <hr class="divider"/>
