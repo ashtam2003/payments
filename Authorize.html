@@ -20,8 +20,10 @@
   --anet:#0076c0;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;overflow-x:clip;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,Helvetica,sans-serif;font-size:14px;line-height:1.65;}
+img,svg,video,canvas{max-width:100%;height:auto;}
+pre{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
 
 /* ─── SIDEBAR ─── */
 .sidebar{position:fixed;top:0;left:0;bottom:0;width:248px;background:var(--white);border-right:1px solid var(--border);overflow:hidden;z-index:200;display:flex;flex-direction:column;}
@@ -45,7 +47,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,Helvetic
 .nav-divider{display:none;}
 
 /* ─── MAIN ─── */
-.main{margin-left:248px;max-width:none;width:calc(100% - 248px);padding:32px 40px 80px;}
+.main{margin-left:248px;max-width:100%;width:calc(100% - 248px);padding:32px 40px 80px;}
 
 /* ─── HERO ─── */
 .hero{background:linear-gradient(135deg,#003d7a 0%,#0056a8 45%,#0076c0 100%);border-radius:14px;padding:32px 36px;margin-bottom:28px;color:white;position:relative;overflow:hidden;}
@@ -100,10 +102,11 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,Helvetic
 .fraud-card::before{display:none;}
 
 /* ─── TABLE ─── */
-table{width:100%;border-collapse:collapse;font-size:12px;}
-th{background:var(--surface);padding:8px 10px;font-size:10px;font-weight:700;text-align:left;color:var(--text);border-bottom:2px solid var(--border);}
-td{padding:7px 10px;border-bottom:1px solid var(--border-light);color:var(--muted);vertical-align:top;}
-tr:last-child td{border-bottom:none;}
+.table-wrapper{width:100%;max-width:100%;overflow-x:auto;border-radius:12px;border:1px solid var(--border);margin-bottom:14px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:480px;}
+th{background:var(--surface);padding:8px 10px;font-size:10px;font-weight:700;text-align:left;color:var(--text);border-bottom:2px solid var(--border);white-space:nowrap;}
+td{padding:7px 10px;border-bottom:1px solid var(--border-light);color:var(--muted);vertical-align:top;word-break:break-word;}
+table tbody tr:last-child td{border-bottom:none;}
 tr:hover td{background:var(--bg);}
 td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;padding:1px 5px;border-radius:3px;color:var(--blue);}
 
@@ -241,11 +244,50 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
 .callout.cb strong,.callout.ca strong,.callout.cg strong,.callout.cr strong,.callout.cp strong,.callout.ct strong{color:var(--text);}
 .callout.cb p,.callout.ca p,.callout.cg p,.callout.cr p,.callout.cp p,.callout.ct p{color:var(--muted);}
 
+/* ─── MOBILE MENU ─── */
+.sidebar-toggle{display:none;position:fixed;top:16px;left:16px;z-index:300;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:8px 10px;cursor:pointer;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:4px;}
+.sidebar-toggle span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+.sidebar-toggle.active span:nth-child(1){transform:rotate(45deg) translateY(10px);}
+.sidebar-toggle.active span:nth-child(2){opacity:0;}
+.sidebar-toggle.active span:nth-child(3){transform:rotate(-45deg) translateY(-10px);}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:150;}
+.sidebar-overlay.active{display:block;}
 /* ─── RESPONSIVE ─── */
-@media(max-width:820px){.sidebar{display:none;}.main{margin-left:0;padding:18px 16px 60px;}.g2,.g3,.g4,.cred-grid,.mode-grid{grid-template-columns:1fr;}}
+@media(max-width:820px){
+.sidebar-toggle{display:flex;top:max(16px,env(safe-area-inset-top));left:max(16px,env(safe-area-inset-left));}
+.sidebar{transform:translateX(-100%);transition:transform .3s ease;z-index:250;overflow-y:auto;box-shadow:4px 0 24px rgba(0,0,0,.12);}
+.sidebar.active{transform:translateX(0);}
+.main{margin-left:0;width:100%;max-width:100%;padding:60px max(16px,env(safe-area-inset-right)) 60px max(16px,env(safe-area-inset-left));}
+.g2,.g3,.g4,.cred-grid,.mode-grid{grid-template-columns:1fr;}
+.section-banner{flex-direction:column;align-items:flex-start;gap:12px;padding:16px 14px;}
+.hero{padding:24px 18px;margin-bottom:20px;}
+.hero h1{font-size:20px;}
+.hero-anet-logo{display:none;}
+.flow-item{min-width:0;flex:1 1 100%;}
+.big-flow{flex-direction:column;gap:8px;align-items:stretch;}
+.bf-arr{display:none;}
+.bf-step{min-width:0;width:100%;}
+.sc-step{min-width:0;flex:1 1 100%;}
+.action-step{min-width:0;flex:1 1 100%;}
+.img-row .img-card{min-width:0;flex:1 1 100%;}
+.fraud-grid{grid-template-columns:1fr;}
+table{font-size:10px;min-width:300px;}
+th{padding:7px 8px;font-size:8.5px;white-space:normal;}
+td{padding:6px 8px;}
+.table-wrapper{margin-bottom:12px;border-radius:8px;}
+.code-block{padding:12px 14px;margin:10px 0;}
+.block div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr !important;}
+}
+@media(max-width:480px){
+table{font-size:9px;min-width:280px;}
+.table-wrapper th{font-size:8px;}
+}
 </style>
 </head>
 <body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
 <!-- ══ SIDEBAR ══ -->
 <nav class="sidebar">
@@ -660,7 +702,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
       </div>
     </div>
 
-    <table>
+    <div class="table-wrapper"><table>
       <thead>
         <tr>
           <th>API transactionType Value</th>
@@ -707,7 +749,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
           <td>Cancel order before capture / correct mistakes</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
 
     <div class="g2" style="margin-top:12px;">
       <div class="callout cr"><strong>⚠️ Void vs Refund</strong><p><strong>Void</strong>: before settlement — cancels hold, zero money moves. <strong>Refund</strong>: after settlement — money already moved to merchant, now gets sent back to card (3–5 business days).</p></div>
@@ -849,7 +891,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
 
     <hr class="divider"/>
     <div class="block-title">When to Use Each Credential</div>
-    <table>
+    <div class="table-wrapper"><table>
       <thead><tr><th>Credential</th><th>Used In</th><th>Safe to Expose?</th><th>Purpose</th></tr></thead>
       <tbody>
         <tr><td><code>API Login ID</code></td><td>Every server-side API request</td><td><span class="tag t-rose">Server-only</span></td><td>Account identification</td></tr>
@@ -857,7 +899,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
         <tr><td><code>Signature Key</code></td><td>Webhook receiver validation</td><td><span class="tag t-rose">Server-only</span></td><td>Verify Authorize.net is the sender</td></tr>
         <tr><td><code>Public Client Key</code></td><td>Accept.js (browser/frontend)</td><td><span class="tag t-green">Yes — public</span></td><td>Frontend tokenization only</td></tr>
       </tbody>
-    </table>
+    </table></div>
 
     <hr class="divider"/>
     <div class="block-title"><div class="bt-num" style="background:#0d9488;">→</div>API Credential Dates and Audit Trail</div>
@@ -980,7 +1022,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
       <strong>What is CVV Verification?</strong>
       <p>The issuing bank compares the CVV submitted in the transaction against what's on file. The response is a single letter code returned in the API response. Even if the bank approves the transaction, you can choose to decline based on a bad CVV match in your AFDS settings.</p>
     </div>
-    <table>
+    <div class="table-wrapper"><table>
       <thead><tr><th>Code</th><th>Meaning</th><th>Action</th></tr></thead>
       <tbody>
         <tr><td><span class="tag t-green">M</span></td><td>CVV matches — correct security code provided</td><td>Proceed normally</td></tr>
@@ -989,7 +1031,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
         <tr><td><span class="tag t-amber">U</span></td><td>Unable to verify CVV — issuer doesn't support verification</td><td>Use other fraud signals to decide</td></tr>
         <tr><td><span class="tag t-amber">P</span></td><td>CVV was not processed by issuing bank</td><td>Treat as unverified, apply caution</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 </div>
 
@@ -1004,7 +1046,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
       <strong>What is AVS?</strong>
       <p>AVS compares the billing address (street + ZIP) submitted with the transaction against the cardholder's registered address at the issuing bank. Mismatches don't always mean fraud, but they are a strong fraud signal. The response is a letter code.</p>
     </div>
-    <table>
+    <div class="table-wrapper"><table>
       <thead><tr><th>Code</th><th>Address Match?</th><th>ZIP Match?</th><th>Meaning</th></tr></thead>
       <tbody>
         <tr><td><span class="tag t-green">Y</span></td><td>✅ Yes</td><td>✅ Yes</td><td>Full match — address and ZIP both correct. Low fraud risk.</td></tr>
@@ -1014,7 +1056,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
         <tr><td><span class="tag t-slate">P</span></td><td>—</td><td>—</td><td>Address verification not supported by this card / international card</td></tr>
         <tr><td><span class="tag t-slate">U</span></td><td>—</td><td>—</td><td>Address verification unavailable — issuer didn't respond</td></tr>
       </tbody>
-    </table>
+    </table></div>
     <div class="callout ca" style="margin-top:10px;">
       <strong>International Cards &amp; AVS</strong>
       <p>Many non-US cards return code <strong>P</strong> or <strong>U</strong> because their issuing banks don't participate in AVS. This is expected — not a red flag on its own. Use CVV and other fraud signals for international transactions.</p>
@@ -1032,7 +1074,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
 
     <div class="err-section">
       <div class="err-header"><div class="err-dot" style="background:#e11d48;"></div>General Declines &amp; Bank Responses</div>
-      <table>
+      <div class="table-wrapper"><table>
         <thead><tr><th>Code</th><th>Description</th><th>Who's Responsible</th></tr></thead>
         <tbody>
           <tr><td><code>2</code></td><td>Transaction declined by bank (generic)</td><td>Issuing Bank</td></tr>
@@ -1044,12 +1086,12 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
           <tr><td><code>62</code></td><td>Restricted card — contact bank</td><td>Issuing Bank</td></tr>
           <tr><td><code>63</code></td><td>Security violation — contact bank</td><td>Issuing Bank</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="err-section">
       <div class="err-header"><div class="err-dot" style="background:#d97706;"></div>Card Issues</div>
-      <table>
+      <div class="table-wrapper"><table>
         <thead><tr><th>Code</th><th>Description</th><th>Fix</th></tr></thead>
         <tbody>
           <tr><td><code>8</code></td><td>Card expired</td><td>Customer needs to use a valid/updated card</td></tr>
@@ -1058,36 +1100,36 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
           <tr><td><code>54</code></td><td>Card expired (confirmed by issuer)</td><td>Customer updates card on file</td></tr>
           <tr><td><code>55</code></td><td>Incorrect PIN entered</td><td>Customer re-enters correct PIN</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="err-section">
       <div class="err-header"><div class="err-dot" style="background:#7c3aed;"></div>Funds &amp; Limits</div>
-      <table>
+      <div class="table-wrapper"><table>
         <thead><tr><th>Code</th><th>Description</th><th>Fix</th></tr></thead>
         <tbody>
           <tr><td><code>51</code></td><td>Insufficient funds — not enough credit/balance</td><td>Customer uses different payment method</td></tr>
           <tr><td><code>61</code></td><td>Transaction exceeds card's allowed limit</td><td>Split into smaller transactions or use different card</td></tr>
           <tr><td><code>65</code></td><td>Transaction limit exceeded — try smaller amount</td><td>Reduce amount or contact processor to raise limits</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="err-section">
       <div class="err-header"><div class="err-dot" style="background:#2563eb;"></div>Verification Errors (AVS/CVV)</div>
-      <table>
+      <div class="table-wrapper"><table>
         <thead><tr><th>Code</th><th>Description</th><th>Fix</th></tr></thead>
         <tbody>
           <tr><td><code>27</code></td><td>Billing address does not match bank records</td><td>Customer verifies/corrects billing address</td></tr>
           <tr><td><code>45</code></td><td>Address verification failed — AVS mismatch</td><td>Check billing address exactly as registered with bank</td></tr>
           <tr><td><code>44</code></td><td>Incorrect CVV / security code</td><td>Customer re-enters CVV from back of card</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="err-section">
       <div class="err-header"><div class="err-dot" style="background:#0d9488;"></div>Processing &amp; System Errors</div>
-      <table>
+      <div class="table-wrapper"><table>
         <thead><tr><th>Code</th><th>Description</th><th>Recommended Action</th></tr></thead>
         <tbody>
           <tr><td><code>3</code></td><td>System error while processing payment</td><td>Retry once. If persists, contact Authorize.net support.</td></tr>
@@ -1101,7 +1143,7 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
           <tr><td><code>152</code></td><td>Transaction timed out</td><td>Check if transaction was created before retrying</td></tr>
           <tr><td><code>153</code></td><td>Service unavailable</td><td>Check Authorize.net status page</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
 
     <div class="callout ca">
@@ -1274,6 +1316,25 @@ td code{font-family:'Courier New',monospace;font-size:11px;background:#f1f5f9;pa
 </div><!-- /main -->
 
 <script>
+function toggleSidebar(){
+  var s=document.querySelector('.sidebar');
+  var o=document.getElementById('sidebarOverlay');
+  var t=document.getElementById('sidebarToggle');
+  if(s)s.classList.toggle('active');
+  if(o)o.classList.toggle('active');
+  if(t)t.classList.toggle('active');
+}
+function closeSidebar(){
+  var s=document.querySelector('.sidebar');
+  var o=document.getElementById('sidebarOverlay');
+  var t=document.getElementById('sidebarToggle');
+  if(s)s.classList.remove('active');
+  if(o)o.classList.remove('active');
+  if(t)t.classList.remove('active');
+}
+document.querySelectorAll('.nav-item').forEach(function(link){
+  link.addEventListener('click',closeSidebar);
+});
 const ids = ['what','how','features','api','api-request','transaction-types','credentials','afds','cvv-errors','avs-errors','txn-errors','declines','action','scenario'];
 const items = document.querySelectorAll('.nav-item');
 const obs = new IntersectionObserver(entries => {
@@ -1295,4 +1356,4 @@ toggles.forEach(btn=>{
 });
 </script>
 </body>
-</html>
+</html> 
