@@ -1,3 +1,4 @@
+ï»¿
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +33,6 @@
 
         html {
             scroll-behavior: smooth;
-            overflow-x: clip;
         }
 
         body {
@@ -41,20 +41,6 @@
             font-family: 'DM Sans', sans-serif;
             font-size: 14px;
             line-height: 1.65;
-        }
-
-        img,
-        svg,
-        video,
-        canvas {
-            max-width: 100%;
-            height: auto;
-        }
-
-        pre {
-            max-width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
         }
 
         /* SIDEBAR */
@@ -214,7 +200,7 @@
         .main {
             margin-left: 252px;
             width: calc(100% - 252px);
-            max-width: 100%;
+            max-width: none;
             padding: 32px 40px 80px;
         }
 
@@ -295,6 +281,11 @@
         }
 
         .spill-valor {
+            background: rgba(255, 255, 255, .2);
+            color: white;
+        }
+
+        .spill-stripe {
             background: rgba(255, 255, 255, .2);
             color: white;
         }
@@ -575,22 +566,10 @@
         }
 
         /* TABLE */
-        .table-wrapper {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: auto;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            margin-bottom: 18px;
-            -webkit-overflow-scrolling: touch;
-            overscroll-behavior-x: contain;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;
             font-size: 12px;
-            min-width: 500px;
         }
 
         th {
@@ -601,74 +580,15 @@
             text-align: left;
             color: var(--text);
             border-bottom: 2px solid var(--border);
-            white-space: nowrap;
         }
 
         td {
             padding: 8px 11px;
             border-bottom: 1px solid var(--border-light);
             color: var(--muted);
-            word-break: break-word;
         }
 
-        /* Story / appendix tables with full cell borders */
-        .table-story-bordered {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-            text-align: left;
-            margin-bottom: 24px;
-            min-width: 560px;
-        }
-
-        .table-story-bordered.table-story--flush {
-            margin-bottom: 0;
-        }
-
-        .table-story-bordered.table-story--wide {
-            min-width: 700px;
-        }
-
-        .table-story-bordered.table-story--medium {
-            min-width: 600px;
-        }
-
-        .table-story-bordered.table-story--compact {
-            min-width: 440px;
-        }
-
-        .table-story-bordered thead tr {
-            background: #f3f4f6;
-        }
-
-        .table-story-bordered th,
-        .table-story-bordered td {
-            border: 1px solid #ccc;
-            padding: 8px;
-            vertical-align: top;
-        }
-
-        .table-story-bordered th {
-            white-space: normal;
-        }
-
-        .preprinted-flex {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            align-items: flex-start;
-        }
-
-        .preprinted-flex-main {
-            flex: 1;
-            min-width: min(100%, 320px);
-        }
-
-        .preprinted-flex-aside {
-            flex: 0 0 280px;
-        }
-
-        table:not(.table-story-bordered) tbody tr:last-child td {
+        tr:last-child td {
             border-bottom: none;
         }
 
@@ -1616,949 +1536,27 @@
             margin-bottom: 2px;
         }
 
-        @media(max-width:1024px) {
+        @media(max-width:800px) {
             .sidebar {
-                width: 200px;
-            }
-
-            .main {
-                margin-left: 200px;
-                width: calc(100% - 200px);
-                max-width: 100%;
-                padding: 24px 28px 60px;
-            }
-        }
-
-        /* HAMBURGER MENU */
-        .sidebar-toggle {
-            display: none;
-            position: fixed;
-            top: 16px;
-            left: 16px;
-            z-index: 300;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 8px 10px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .sidebar-toggle span {
-            width: 20px;
-            height: 2px;
-            background: var(--text);
-            border-radius: 2px;
-            transition: all .3s;
-            display: block;
-        }
-
-        .sidebar-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translateY(10px);
-        }
-
-        .sidebar-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .sidebar-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-10px);
-        }
-
-        .sidebar-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, .5);
-            z-index: 150;
-        }
-
-        .sidebar-overlay.active {
-            display: block;
-        }
-
-        @media(max-width:768px) {
-            .sidebar-toggle {
-                display: flex;
-                top: max(16px, env(safe-area-inset-top));
-                left: max(16px, env(safe-area-inset-left));
-            }
-
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform .3s ease;
-                z-index: 250;
-            }
-
-            .sidebar.active {
-                transform: translateX(0);
+                display: none;
             }
 
             .main {
                 margin-left: 0;
-                width: 100%;
-                max-width: 100%;
-                padding: 60px max(12px, env(safe-area-inset-right)) 60px max(12px, env(safe-area-inset-left));
-            }
-
-            .preprinted-flex-aside {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-
-            .master-hero {
-                padding: 24px 16px;
-                border-radius: 12px;
-                margin-bottom: 24px;
-            }
-
-            .master-hero h1 {
-                font-size: 20px;
-            }
-
-            .master-hero p {
-                font-size: 12px;
-            }
-
-            .section-pills {
-                gap: 6px;
-            }
-
-            .spill {
-                padding: 6px 12px;
-                font-size: 10px;
-            }
-
-            .section-banner {
-                padding: 16px 14px;
-                gap: 12px;
-                flex-direction: column;
-            }
-
-            .sb-num {
-                width: 44px;
-                height: 44px;
-                font-size: 18px;
-            }
-
-            .sb-title {
-                font-size: 16px;
-            }
-
-            .block {
-                padding: 16px;
-                border-radius: 10px;
-                margin-bottom: 14px;
-            }
-
-            .block-title {
-                font-size: 12px;
-                margin-bottom: 10px;
+                padding: 18px 16px 60px;
             }
 
             .g2,
             .g3,
             .mode-grid,
-            .bureau-grid,
-            .check-format-grid,
-            .auth-grid,
-            .addr-grid {
+            .bureau-grid {
                 grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .gauto {
-                grid-template-columns: 1fr;
-            }
-
-            .img-row {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .img-card img {
-                height: 140px;
-            }
-
-            .img-full img {
-                height: 150px;
-            }
-
-            .flow {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .flow-item {
-                min-width: auto;
-                flex: 1;
-            }
-
-            .big-flow,
-            .ach-flow {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .bf-step,
-            .ach-step {
-                min-width: auto;
-                padding: 10px;
-            }
-
-            .bf-arr,
-            .ach-arr {
-                display: none;
-            }
-
-            .mode-card {
-                padding: 12px;
-            }
-
-            .mode-card h4 {
-                font-size: 11px;
-            }
-
-            .mode-card li {
-                font-size: 10px;
-            }
-
-            .card {
-                padding: 12px;
-            }
-
-            .card h4 {
-                font-size: 11px;
-            }
-
-            .card p,
-            .card li {
-                font-size: 10.5px;
-            }
-
-            .check-visual {
-                max-width: 100%;
-                padding: 14px 16px;
-                font-size: 9px;
-            }
-
-            .check-corner {
-                top: 10px;
-                right: 10px;
-                font-size: 9px;
-            }
-
-            .check-bank {
-                font-size: 9px;
-            }
-
-            .check-date-box {
-                font-size: 9.5px;
-                min-width: 90px;
-            }
-
-            .check-pay-label {
-                font-size: 8.5px;
-            }
-
-            .check-payee {
-                font-size: 10px;
-            }
-
-            .check-amount-box,
-            .check-amount-words {
-                font-size: 10px;
-            }
-
-            .cc-visual {
-                max-width: 100%;
-                padding: 14px 16px;
-            }
-
-            .cc-num {
-                font-size: 11px;
-            }
-
-            .cc-val,
-            .cc-name {
-                font-size: 9px;
-            }
-
-            .cc-net {
-                font-size: 14px;
-            }
-
-            .net-pill {
-                flex: none;
-                min-width: 80px;
-                padding: 8px 10px;
-            }
-
-            .net-name {
-                font-size: 10px;
-            }
-
-            .net-pill p {
-                font-size: 9px;
-            }
-
-            table {
-                font-size: 10px;
-                min-width: 350px;
-                word-wrap: break-word;
-            }
-
-            th {
-                padding: 7px 8px;
-                font-size: 8.5px;
-                background: var(--surface);
-                word-wrap: break-word;
-            }
-
-            td {
-                padding: 6px 8px;
-                word-break: break-word;
-            }
-
-            .table-wrapper th {
-                white-space: normal;
-                vertical-align: bottom;
-            }
-
-            .table-wrapper {
-                overflow-x: auto;
-                border-radius: 8px;
-                margin-bottom: 14px;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .table-story-bordered {
-                font-size: 12px;
-            }
-
-            .table-story-bordered th,
-            .table-story-bordered td {
-                padding: 6px 7px;
-            }
-
-            .story-card {
-                padding: 16px;
-                margin-bottom: 12px;
-            }
-
-            .story-step-num {
-                width: 28px;
-                height: 28px;
-                font-size: 11px;
-            }
-
-            .story-card h3 {
-                font-size: 13px;
-                margin-bottom: 6px;
-            }
-
-            .story-card p {
-                font-size: 11px;
-            }
-
-            .story-hero {
-                padding: 20px 16px;
-                border-radius: 10px;
-            }
-
-            .story-hero h2 {
-                font-size: 18px;
-                margin-bottom: 5px;
-            }
-
-            .story-hero p {
-                font-size: 11px;
-            }
-
-            .ch-title {
-                font-size: 15px;
-                line-height: 1.2;
-            }
-
-            .bar-label {
-                font-size: 10px;
-                min-width: 100px;
-            }
-
-            .score-ranges {
-                margin-top: 5px;
-            }
-
-            .sr {
-                padding: 5px 3px;
-            }
-
-            .sr .sn {
-                font-size: 9px;
-            }
-
-            .sr .sl {
-                font-size: 8px;
-            }
-
-            .fico-bar-chart {
-                gap: 6px;
-                margin-top: 7px;
-            }
-        }
-
-        @media(max-width:480px) {
-            body {
-                font-size: 13px;
-            }
-
-            .main {
-                padding: 60px max(10px, env(safe-area-inset-right)) 50px max(10px, env(safe-area-inset-left));
-            }
-
-            .master-hero {
-                padding: 18px 14px;
-                border-radius: 10px;
-                margin-bottom: 18px;
-            }
-
-            .master-hero h1 {
-                font-size: 18px;
-                line-height: 1.2;
-            }
-
-            .master-hero p {
-                font-size: 11px;
-                max-width: 100%;
-            }
-
-            .section-pills {
-                gap: 5px;
-                margin-top: 12px;
-            }
-
-            .spill {
-                padding: 5px 10px;
-                font-size: 9px;
-            }
-
-            .section-banner {
-                padding: 14px 12px;
-                margin: 20px 0 16px;
-                gap: 10px;
-            }
-
-            .sb-num {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
-            }
-
-            .sb-title {
-                font-size: 14px;
-            }
-
-            .sb-desc {
-                font-size: 10px;
-            }
-
-            .block {
-                padding: 14px;
-                border-radius: 8px;
-                margin-bottom: 12px;
-            }
-
-            .block-title {
-                font-size: 11px;
-                margin-bottom: 8px;
-                gap: 6px;
-            }
-
-            .ch-header {
-                gap: 8px;
-                margin: 18px 0 10px;
-            }
-
-            .ch-title {
-                font-size: 13px;
-            }
-
-            .ch-label {
-                font-size: 8px;
-            }
-
-            .ch-desc {
-                font-size: 10px;
-            }
-
-            .divider {
-                margin: 12px 0;
-            }
-
-            .card {
-                padding: 10px;
-            }
-
-            .card h4 {
-                font-size: 10px;
-                margin-bottom: 4px;
-            }
-
-            .card p,
-            .card li {
-                font-size: 9.5px;
-            }
-
-            .card ul {
-                margin-left: 12px;
-            }
-
-            .img-row {
-                gap: 6px;
-            }
-
-            .img-card {
-                min-width: auto;
-            }
-
-            .img-card img {
-                height: 120px;
-            }
-
-            .img-full img {
-                height: 120px;
-            }
-
-            .img-cap {
-                font-size: 9px;
-                padding: 5px 8px;
-            }
-
-            .flow {
-                gap: 6px;
-            }
-
-            .flow-item {
-                padding: 10px 8px;
-                min-width: auto;
-            }
-
-            .fc {
-                width: 28px;
-                height: 28px;
-                font-size: 10px;
-            }
-
-            .fb strong {
-                font-size: 10px;
-            }
-
-            .fb span {
-                font-size: 9px;
-            }
-
-            .big-flow,
-            .ach-flow {
-                gap: 6px;
-            }
-
-            .bf-step,
-            .ach-step {
-                padding: 8px;
-                border-radius: 7px;
-            }
-
-            .bf-icon {
-                font-size: 14px;
-            }
-
-            .bf-label {
-                font-size: 9px;
-            }
-
-            .bf-sub {
-                font-size: 7.5px;
-            }
-
-            .ach-icon {
-                font-size: 16px;
-            }
-
-            .ach-label {
-                font-size: 9px;
-            }
-
-            .ach-sub {
-                font-size: 8px;
-            }
-
-            .mode-card {
-                padding: 10px;
-                border-radius: 8px;
-            }
-
-            .mode-badge {
-                padding: 2px 6px;
-                font-size: 7.5px;
-                margin-bottom: 4px;
-            }
-
-            .mode-card h4 {
-                font-size: 10px;
-                margin-bottom: 3px;
-            }
-
-            .mode-card li {
-                font-size: 9.5px;
-                margin-bottom: 1px;
-            }
-
-            .auth-card {
-                padding: 11px;
-            }
-
-            .auth-num {
-                font-size: 7.5px;
-            }
-
-            .auth-card h4 {
-                font-size: 11px;
-            }
-
-            .auth-card p {
-                font-size: 9.5px;
-                margin-bottom: 5px;
-            }
-
-            .auth-uc {
-                padding: 5px 6px;
-                font-size: 9px;
-            }
-
-            .addr-card {
-                padding: 11px;
-            }
-
-            .addr-flag {
-                font-size: 18px;
-                margin-bottom: 4px;
-            }
-
-            .addr-lbl {
-                font-size: 7.5px;
-            }
-
-            .addr-val {
-                font-size: 10px;
-            }
-
-            .addr-note {
-                font-size: 9px;
-                margin-top: 5px;
-                padding-top: 5px;
-            }
-
-            .bureau-card {
-                padding: 12px;
-            }
-
-            .bureau-name {
-                font-size: 13px;
-            }
-
-            .check-visual {
-                padding: 12px 14px;
-                font-size: 8px;
-                border-radius: 6px;
-            }
-
-            .check-bank {
-                font-size: 8px;
-            }
-
-            .check-date-box {
-                font-size: 8.5px;
-                min-width: 80px;
-                padding: 2px 5px;
-            }
-
-            .check-pay-label {
-                font-size: 7.5px;
-            }
-
-            .check-payee {
-                font-size: 9px;
-            }
-
-            .check-amount-box,
-            .check-amount-words {
-                font-size: 9px;
-            }
-
-            .check-micr {
-                font-size: 11px;
-                margin-top: 10px;
-            }
-
-            .check-micr-label {
-                font-size: 7px;
-            }
-
-            .cc-visual {
-                padding: 12px 14px;
-            }
-
-            .cc-chip {
-                width: 26px;
-                height: 20px;
-            }
-
-            .cc-num {
-                font-size: 10px;
-                letter-spacing: .12em;
-            }
-
-            .cc-val,
-            .cc-name {
-                font-size: 8px;
-            }
-
-            .cc-net {
-                font-size: 12px;
-            }
-
-            .net-row {
-                gap: 6px;
-                margin-top: 8px;
-            }
-
-            .net-pill {
-                padding: 8px 9px;
-                min-width: 70px;
-            }
-
-            .net-name {
-                font-size: 9px;
-            }
-
-            .net-pill p {
-                font-size: 8px;
-            }
-
-            .net-pill .bin {
-                font-size: 8px;
-            }
-
-            .score-spec {
-                height: 11px;
-                margin: 5px 0;
-            }
-
-            .score-lbls {
-                font-size: 8px;
-            }
-
-            .score-ranges {
-                gap: 3px;
-                margin-top: 5px;
-            }
-
-            .sr {
-                padding: 5px 3px;
-                min-width: 50px;
-            }
-
-            .sr .sn {
-                font-size: 8px;
-            }
-
-            .sr .sl {
-                font-size: 7px;
-            }
-
-            .fico-bar-chart {
-                gap: 5px;
-            }
-
-            .bar-item {
-                gap: 8px;
-            }
-
-            .bar-label {
-                font-size: 9px;
-                min-width: 90px;
-            }
-
-            .bar-track {
-                height: 10px;
-            }
-
-            .bar-percent {
-                font-size: 9px;
-                min-width: 25px;
-            }
-
-            table {
-                font-size: 9px;
-                min-width: 300px;
-            }
-
-            th {
-                padding: 5px 6px;
-                font-size: 7px;
-                font-weight: 700;
-                background: var(--surface);
-            }
-
-            td {
-                padding: 5px 6px;
-                word-break: break-word;
-                line-height: 1.4;
-            }
-
-            .table-wrapper {
-                overflow-x: auto;
-                border-radius: 6px;
-                margin-bottom: 12px;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .table-wrapper th {
-                white-space: normal;
-            }
-
-            .table-story-bordered {
-                font-size: 10px;
-            }
-
-            .table-story-bordered th,
-            .table-story-bordered td {
-                padding: 5px 6px;
-            }
-
-            .callout {
-                padding: 10px 12px;
-                font-size: 10.5px;
-                margin: 8px 0;
-            }
-
-            .callout strong {
-                margin-bottom: 1px;
-            }
-
-            .tag {
-                padding: 2px 6px;
-                font-size: 8px;
-            }
-
-            .story-hero {
-                padding: 16px 12px;
-                margin-bottom: 16px;
-                border-radius: 8px;
-            }
-
-            .story-hero::before {
-                font-size: 50px;
-                right: 20px;
-            }
-
-            .story-eyebrow {
-                font-size: 8px;
-                margin-bottom: 4px;
-            }
-
-            .story-hero h2 {
-                font-size: 16px;
-                margin-bottom: 4px;
-            }
-
-            .story-hero p {
-                font-size: 10px;
-            }
-
-            .story-card {
-                padding: 14px;
-                margin-bottom: 10px;
-                border-radius: 10px;
-            }
-
-            .story-step-num {
-                width: 26px;
-                height: 26px;
-                top: 12px;
-                right: 12px;
-                font-size: 10px;
-            }
-
-            .story-scene {
-                font-size: 8px;
-                margin-bottom: 3px;
-            }
-
-            .story-card h3 {
-                font-size: 12px;
-                margin-bottom: 5px;
-            }
-
-            .story-card p {
-                font-size: 10px;
-            }
-
-            .story-card p+p {
-                margin-top: 4px;
-            }
-
-            .story-detail {
-                padding: 8px 11px;
-                margin-top: 8px;
-                font-size: 10px;
-            }
-
-            .story-detail strong {
-                font-size: 9px;
-                margin-bottom: 1px;
-            }
-
-            .card-highlight {
-                padding: 12px;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05);
-            }
-
-            .card-highlight h4,
-            .card-highlight h5 {
-                font-size: 11px;
-                margin-bottom: 6px;
-            }
-
-            .placeholder-box {
-                min-height: 140px;
-                font-size: 12px;
-                border-radius: 8px;
             }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- HAMBURGER MENU TOGGLE -->
-    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- SIDEBAR OVERLAY -->
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
     <!-- SIDEBAR -->
     <nav class="sidebar">
@@ -2667,7 +1665,23 @@
                 </div>
                 <div class="nav-acc-body">
                     <a class="nav-item" href="Authorize.html" target="_blank" style="font-weight:700;color:#0d9488;">
-                        <div class="nav-dot" style="background:#0d9488;"></div>Open full Authorize.net guide
+                        <div class="nav-dot" style="background:#0d9488;"></div> Authorize.net Documentation
+                    </a>
+                </div>
+            </div>
+
+            <div class="nav-divider"></div>
+
+            <!-- Section Stripe accordion -->
+            <div class="nav-accordion">
+                <div class="nav-acc-header" onclick="toggleAcc(this)">
+                    <div class="nav-acc-dot" style="background:#6772e5;"></div>
+                    <div class="nav-acc-label">Stripe</div>
+                    <span class="nav-acc-arrow">▾</span>
+                </div>
+                <div class="nav-acc-body">
+                    <a class="nav-item" href="stripe.html" target="_blank" style="font-weight:700;color:#6772e5;">
+                        <div class="nav-dot" style="background:#6772e5;"></div> Stripe Documentation
                     </a>
                 </div>
             </div>
@@ -2683,7 +1697,7 @@
                 </div>
                 <div class="nav-acc-body">
                     <a class="nav-item" href="valor.html" target="_blank" style="font-weight:700;color:#0a3d91;">
-                        <div class="nav-dot" style="background:#0a3d91;"></div>Open full Valor PayTech guide
+                        <div class="nav-dot" style="background:#0a3d91;"></div> Valor PayTech Documentation
                     </a>
                 </div>
             </div>
@@ -2705,6 +1719,7 @@
                 <a class="spill spill-teal" href="#section-b">Checks</a>
                 <a class="spill spill-purple" href="#section-c">Storyline</a>
                 <a class="spill" href="Authorize.html" target="_blank">Authorize.net</a>
+                <a class="spill spill-stripe" href="stripe.html" target="_blank">Stripe</a>
                 <a class="spill spill-valor" href="#section-e">Valor PayTech</a>
             </div>
         </div>
@@ -2813,7 +1828,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
       <div class="img-card"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=80" alt="Debit payment"/><div class="img-cap">Debit — your own money</div></div>
       <div class="img-card"><img src="https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=400&q=80" alt="Credit card swipe"/><div class="img-cap">Credit — bank's money</div></div>
     </div> -->
-                <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
@@ -2850,7 +1864,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                         </tr>
                     </tbody>
                 </table>
-                </div>
             </div>
         </div>
 
@@ -3138,7 +2151,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                         <p style="font-size:10.5px;margin-top:6px;">e.g. Wells Fargo, Stripe, Square</p>
                     </div>
                 </div>
-                <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
@@ -3170,7 +2182,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                         </tr>
                     </tbody>
                 </table>
-                </div>
             </div>
         </div>
 
@@ -3356,8 +2367,7 @@ Double:     8   6   2   16  0   8   12  12</pre>
                         </ul>
                     </div>
                 </div>
-                <div class="table-wrapper" style="margin-top:11px;">
-                <table>
+                <table style="margin-top:11px;">
                     <thead>
                         <tr>
                             <th>Stage</th>
@@ -3387,7 +2397,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                         </tr>
                     </tbody>
                 </table>
-                </div>
             </div>
         </div>
 
@@ -3728,7 +2737,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 <div class="block-title">
                     <div class="bt-num" style="background:#0d9488;">2</div>ACH Debit vs ACH Credit
                 </div>
-                <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
@@ -3753,7 +2761,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                         </tr>
                     </tbody>
                 </table>
-                </div>
                 <hr class="divider" />
                 <div class="block-title">
                     <div class="bt-num" style="background:#0d9488;">3</div>ACH Transaction Flow
@@ -3823,7 +2830,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 <div class="block-title">
                     <div class="bt-num" style="background:#0d9488;">5</div>ACH vs Credit Card
                 </div>
-                <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
@@ -3870,7 +2876,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                         </tr>
                     </tbody>
                 </table>
-                </div>
                 <hr class="divider" />
                 <div class="block-title">
                     <div class="bt-num" style="background:#0d9488;">6</div>Common ACH Return Codes
@@ -4048,8 +3053,8 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 </div>
 
                 <div class="card" style="padding:16px; margin-top:16px;">
-                    <div class="preprinted-flex">
-                        <div class="preprinted-flex-main">
+                    <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start;">
+                        <div style="flex:1; min-width:320px;">
                             <h3>What are Pre-Printed Checks?</h3>
                 <ul>
                     <li>Checks ordered from vendors with company logo</li>
@@ -4096,7 +3101,7 @@ Double:     8   6   2   16  0   8   12  12</pre>
 
                 <p>In real systems, checks are pre-printed with company and bank details. The ERP system like Stone Profit only prints variable data like payee and amount. Since different check layouts exist, the system provides configurable formats to align printing correctly.</p>
                         </div>
-                        <div class="preprinted-flex-aside">
+                        <div style="flex:0 0 280px;">
                             <!-- <div class="placeholder-box" style="height:360px; margin-top:0;">
                                 <strong>Image</strong><br>
                                 <span>Check format image here</span>
@@ -4163,7 +3168,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 </div>
                 <hr class="divider" />
                 <div class="block-title">Field-by-Field Breakdown</div>
-                <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
@@ -4230,7 +3234,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                         </tr>
                     </tbody>
                 </table>
-                </div>
                 <div class="callout cb" style="margin-top:11px;"><strong>🔍MICR Line</strong>
                     <p>Printed in special magnetic ink readable by bank sorting machines. Routing number always 9
                         digits. Account number length varies by bank.</p>
@@ -4352,56 +3355,54 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 <!-- </div> -->
                 <div class="block" style="margin-top:24px; padding:18px 18px 12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:14px;">
                     <h4 style="margin:0 0 12px; font-size:16px;">The checks are processed in the following steps:</h4>
-                    <div class="table-wrapper">
-                    <table class="table-story-bordered table-story--compact table-story--flush">
+                    <table style="width:100%;border-collapse:collapse;font-size:14px;text-align:left;margin-bottom:0;">
                         <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Event</th>
-                                <th>Amount</th>
-                                <th>What Happens</th>
+                            <tr style="background:#f3f4f6;">
+                                <th style="border:1px solid #ccc;padding:8px;">Date</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Event</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Amount</th>
+                                <th style="border:1px solid #ccc;padding:8px;">What Happens</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>March 3, 2026</td>
-                                <td>Check written and handed over</td>
-                                <td>₹25,000</td>
-                                <td>Anita Sharma writes the check at her Hyderabad office and gives it to Ravi Kumar for painting work.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 3, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Check written and handed over</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹25,000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Anita Sharma writes the check at her Hyderabad office and gives it to Ravi Kumar for painting work.</td>
                             </tr>
                             <tr>
-                                <td>March 4, 2026</td>
-                                <td>Check deposited</td>
-                                <td>₹25,000</td>
-                                <td>Ravi deposits the check at SBI Ameerpet branch, handing the physical check to the teller.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 4, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Check deposited</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹25,000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Ravi deposits the check at SBI Ameerpet branch, handing the physical check to the teller.</td>
                             </tr>
                             <tr>
-                                <td>March 4, 2026</td>
-                                <td>MICR scan and digital imaging</td>
-                                <td>₹25,000</td>
-                                <td>SBI reads the routing and account numbers from the check to create a digital image for clearing.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 4, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">MICR scan and digital imaging</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹25,000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">SBI reads the routing and account numbers from the check to create a digital image for clearing.</td>
                             </tr>
                             <tr>
-                                <td>March 4, 2026</td>
-                                <td>Image sent through clearing</td>
-                                <td>₹25,000</td>
-                                <td>SBI sends the check image over the CTS Hyderabad clearing system to HDFC Bank, Banjara Hills.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 4, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Image sent through clearing</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹25,000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">SBI sends the check image over the CTS Hyderabad clearing system to HDFC Bank, Banjara Hills.</td>
                             </tr>
                             <tr>
-                                <td>March 5, 2026</td>
-                                <td>Verification and debit</td>
-                                <td>₹25,000</td>
-                                <td>HDFC verifies Anita’s signature, checks her balance, confirms no stop payment, then debits her account.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 5, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Verification and debit</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹25,000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">HDFC verifies Anita’s signature, checks her balance, confirms no stop payment, then debits her account.</td>
                             </tr>
                             <tr>
-                                <td>March 6, 2026</td>
-                                <td>Funds credited</td>
-                                <td>₹25,000</td>
-                                <td>SBI receives confirmation and credits Ravi Kumar’s account, completing the payment.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 6, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Funds credited</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹25,000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">SBI receives confirmation and credits Ravi Kumar’s account, completing the payment.</td>
                             </tr>
                         </tbody>
                     </table>
-                    </div>
                 </div>
                 <div class="callout cb" style="margin-top:11px;"><strong>Check 21 Act (2004)</strong>
                     <p>Allows banks to transmit a digital image of a check instead of the physical paper. This is why
@@ -4432,237 +3433,229 @@ Double:     8   6   2   16  0   8   12  12</pre>
 
         <div id="story">
             <div class="section-banner sb-sky" style="margin-top:36px;">
-                <div class="block">
+                <div class="block" style="overflow-x:auto;">
                     <h3 style="margin-bottom:12px;">Story Line for payments</h3>
                     <p style="margin-bottom:14px;">Below are both: standard payment patterns and the three real-world storyline scenarios.</p>
 
                     <h4 style="margin:16px 0 8px;">General payment types</h4>
-                    <div class="table-wrapper">
-                    <table class="table-story-bordered table-story--wide">
+                    <table style="width:100%;border-collapse:collapse;font-size:14px;text-align:left;margin-bottom:24px;">
                         <thead>
-                            <tr>
-                                <th>Payments</th>
-                                <th>Story line</th>
-                                <th>Flow</th>
+                            <tr style="background:#f3f4f6;">
+                                <th style="border:1px solid #ccc;padding:8px;">Payments</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Story line</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Flow</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1. AUTH ONLY</td>
-                                <td>You go to a hotel and swipe your card at check-in. The hotel does not charge you yet. It just checks if you have money and blocks it temporarily. If you cancel or leave, the money is released.</td>
-                                <td>Auth → Hold placed → No Capture → No Settlement → Hold released</td>
+                                <td style="border:1px solid #ccc;padding:8px;">1. AUTH ONLY</td>
+                                <td style="border:1px solid #ccc;padding:8px;">You go to a hotel and swipe your card at check-in. The hotel does not charge you yet. It just checks if you have money and blocks it temporarily. If you cancel or leave, the money is released.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Auth → Hold placed → No Capture → No Settlement → Hold released</td>
                             </tr>
                             <tr>
-                                <td>2. AUTH + CAPTURE (DELAYED)</td>
-                                <td>You order something online. The website checks your card and blocks the money. The item is shipped later. Once shipped, the company actually charges you.</td>
-                                <td>Auth → Hold → Capture (later) → Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">2. AUTH + CAPTURE (DELAYED)</td>
+                                <td style="border:1px solid #ccc;padding:8px;">You order something online. The website checks your card and blocks the money. The item is shipped later. Once shipped, the company actually charges you.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Auth → Hold → Capture (later) → Settlement</td>
                             </tr>
                             <tr>
-                                <td>3. SALE (INSTANT PAYMENT)</td>
-                                <td>You buy something at a shop. You swipe your card and the money is deducted instantly. No waiting.</td>
-                                <td>Auth + Capture (same time) → Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">3. SALE (INSTANT PAYMENT)</td>
+                                <td style="border:1px solid #ccc;padding:8px;">You buy something at a shop. You swipe your card and the money is deducted instantly. No waiting.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Auth + Capture (same time) → Settlement</td>
                             </tr>
                             <tr>
-                                <td>4. PRE-AUTHORIZATION</td>
-                                <td>You check into a hotel. They block ₹5000 even though your room is ₹3000. After checkout, they adjust and charge the final amount.</td>
-                                <td>Auth (extra hold) → Adjust amount → Capture → Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">4. PRE-AUTHORIZATION</td>
+                                <td style="border:1px solid #ccc;padding:8px;">You check into a hotel. They block ₹5000 even though your room is ₹3000. After checkout, they adjust and charge the final amount.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Auth (extra hold) → Adjust amount → Capture → Settlement</td>
                             </tr>
                             <tr>
-                                <td>5. PARTIAL CAPTURE</td>
-                                <td>You order 3 items online. Only 2 are available. The company only charges for 2 items.</td>
-                                <td>Auth (₹1000) → Capture (₹700) → Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">5. PARTIAL CAPTURE</td>
+                                <td style="border:1px solid #ccc;padding:8px;">You order 3 items online. Only 2 are available. The company only charges for 2 items.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Auth (₹1000) → Capture (₹700) → Settlement</td>
                             </tr>
                             <tr>
-                                <td>6. MULTIPLE CAPTURE</td>
-                                <td>You order multiple items. They are delivered separately. Each time an item is shipped, you are charged partially.</td>
-                                <td>Auth → Capture 1 → Capture 2 → Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">6. MULTIPLE CAPTURE</td>
+                                <td style="border:1px solid #ccc;padding:8px;">You order multiple items. They are delivered separately. Each time an item is shipped, you are charged partially.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Auth → Capture 1 → Capture 2 → Settlement</td>
                             </tr>
                             <tr>
-                                <td>7. VOID (CANCEL BEFORE CHARGE)</td>
-                                <td>You swipe your card but immediately cancel the transaction. The bank removes the hold and no money is taken.</td>
-                                <td>Auth → Void → No Capture → No Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">7. VOID (CANCEL BEFORE CHARGE)</td>
+                                <td style="border:1px solid #ccc;padding:8px;">You swipe your card but immediately cancel the transaction. The bank removes the hold and no money is taken.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Auth → Void → No Capture → No Settlement</td>
                             </tr>
                             <tr>
-                                <td>8. REFUND (AFTER PAYMENT)</td>
-                                <td>You buy a product and later return it. The company sends your money back to your account.</td>
-                                <td>Sale → Settlement → Refund (new transaction)</td>
+                                <td style="border:1px solid #ccc;padding:8px;">8. REFUND (AFTER PAYMENT)</td>
+                                <td style="border:1px solid #ccc;padding:8px;">You buy a product and later return it. The company sends your money back to your account.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Sale → Settlement → Refund (new transaction)</td>
                             </tr>
                             <tr>
-                                <td>9. CHECK</td>
-                                <td>Every payment is just a journey of money: first the bank checks, then the merchant charges, then the money is transferred.</td>
-                                <td>Auth -> "Check and hold" Capture → “Charge” Settlement -> "Transfer"</td>
+                                <td style="border:1px solid #ccc;padding:8px;">9. CHECK</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Every payment is just a journey of money: first the bank checks, then the merchant charges, then the money is transferred.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Auth -> "Check and hold" Capture → “Charge” Settlement -> "Transfer"</td>
                             </tr>
                         </tbody>
                     </table>
-                    </div>
 
                     <p style="margin-bottom:14px;">Three detailed scenarios  </p>
 
                     <h4 style="margin:16px 0 8px;">1. Petrol Bunker / Gas Station</h4>
                     <p style="margin-bottom:12px;">Ravi goes to a petrol pump and swipe your card. The station does not know the exact amount yet, so Ravi's bank first blocks a higher amount. Once the fuel meter is confirmed, the pump charges the real bill.</p>
-                    <div class="table-wrapper">
-                    <table class="table-story-bordered table-story--medium">
+                    <table style="width:100%;border-collapse:collapse;font-size:14px;text-align:left;margin-bottom:24px;">
                         <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Amount</th>
-                                <th>Transaction Type</th>
-                                <th>What Happens</th>
+                            <tr style="background:#f3f4f6;">
+                                <th style="border:1px solid #ccc;padding:8px;">Date</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Time</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Amount</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Transaction Type</th>
+                                <th style="border:1px solid #ccc;padding:8px;">What Happens</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>March 1, 2026</td>
-                                <td>10:00</td>
-                                <td>₹5000</td>
-                                <td>Authorization</td>
-                                <td>Bank holds the maximum fuel estimate while you fill petrol.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 1, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">10:00</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹5000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Authorization</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Bank holds the maximum fuel estimate while you fill petrol.</td>
                             </tr>
                             <tr>
-                                <td>March 1, 2026</td>
-                                <td>10:05</td>
-                                <td>₹2000</td>
-                                <td>Capture</td>
-                                <td>The petrol pump confirms the actual amount and charges ₹2000.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 1, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">10:05</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹2000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Capture</td>
+                                <td style="border:1px solid #ccc;padding:8px;">The petrol pump confirms the actual amount and charges ₹2000.</td>
                             </tr>
                             <tr>
-                                <td>March 1, 2026</td>
-                                <td>EOD</td>
-                                <td>₹2000</td>
-                                <td>Settlement</td>
-                                <td>The bank settles the charge to the fuel station.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 1, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">EOD</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹2000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">The bank settles the charge to the fuel station.</td>
                             </tr>
                             <tr>
-                                <td>March 2, 2026</td>
-                                <td>—</td>
-                                <td>₹3000</td>
-                                <td>Release</td>
-                                <td>The unused hold is released back to your account.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 2, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">—</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹3000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Release</td>
+                                <td style="border:1px solid #ccc;padding:8px;">The unused hold is released back to your account.</td>
                             </tr>
                         </tbody>
                     </table>
-                    </div>
 
                     <h4 style="margin:16px 0 8px;">2. Hotel (Room + Incidentals)</h4>
                     <p style="margin-bottom:12px;">ravi checks into a hotel. The hotel places a hold for the room and extras like minibar or room service. At checkout, the final cost is captured and the unused portion is returned.</p>
-                    <div class="table-wrapper">
-                    <table class="table-story-bordered table-story--medium">
+                    <table style="width:100%;border-collapse:collapse;font-size:14px;text-align:left;margin-bottom:24px;">
                         <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Amount</th>
-                                <th>Transaction Type</th>
-                                <th>What Happens</th>
+                            <tr style="background:#f3f4f6;">
+                                <th style="border:1px solid #ccc;padding:8px;">Date</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Time</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Amount</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Transaction Type</th>
+                                <th style="border:1px solid #ccc;padding:8px;">What Happens</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>March 2, 2026</td>
-                                <td>14:00</td>
-                                <td>₹10000</td>
-                                <td>Authorization</td>
-                                <td>Hotel holds room charges and a buffer for incidentals.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 2, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">14:00</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹10000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Authorization</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Hotel holds room charges and a buffer for incidentals.</td>
                             </tr>
                             <tr>
-                                <td>March 3, 2026</td>
-                                <td>—</td>
-                                <td>—</td>
-                                <td>No action</td>
-                                <td>Ravi stays at the hotel and uses services as needed.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 3, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">—</td>
+                                <td style="border:1px solid #ccc;padding:8px;">—</td>
+                                <td style="border:1px solid #ccc;padding:8px;">No action</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Ravi stays at the hotel and uses services as needed.</td>
                             </tr>
                             <tr>
-                                <td>March 4, 2026</td>
-                                <td>11:00</td>
-                                <td>₹8000</td>
-                                <td>Capture</td>
-                                <td>Final bill is charged when Ravi checks out.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 4, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">11:00</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹8000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Capture</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Final bill is charged when Ravi checks out.</td>
                             </tr>
                             <tr>
-                                <td>March 4, 2026</td>
-                                <td>EOD</td>
-                                <td>₹8000</td>
-                                <td>Settlement</td>
-                                <td>The hotel receives the money from the bank.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 4, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">EOD</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹8000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">The hotel receives the money from the bank.</td>
                             </tr>
                             <tr>
-                                <td>March 5, 2026</td>
-                                <td>—</td>
-                                <td>₹2000</td>
-                                <td>Release</td>
-                                <td>Any unused hold is returned to your account.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 5, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">—</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹2000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Release</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Any unused hold is returned to your account.</td>
                             </tr>
                         </tbody>
                     </table>
-                    </div>
 
                     <h4 style="margin:16px 0 8px;">3. Car Rental (Rental + Fuel, Damage)</h4>
                     <p style="margin-bottom:12px;">At pickup, the rental company holds money for the car rental, fuel, and potential damage. When you return the car, the final rental amount is captured and the damage hold is kept until inspection.</p>
-                    <div class="table-wrapper">
-                    <table class="table-story-bordered table-story--medium">
+                    <table style="width:100%;border-collapse:collapse;font-size:14px;text-align:left;margin-bottom:24px;">
                         <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Amount</th>
-                                <th>Transaction Type</th>
-                                <th>What Happens</th>
+                            <tr style="background:#f3f4f6;">
+                                <th style="border:1px solid #ccc;padding:8px;">Date</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Time</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Amount</th>
+                                <th style="border:1px solid #ccc;padding:8px;">Transaction Type</th>
+                                <th style="border:1px solid #ccc;padding:8px;">What Happens</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>March 5, 2026</td>
-                                <td>09:00</td>
-                                <td>₹15000</td>
-                                <td>Authorization</td>
-                                <td>Rental and fuel hold is placed on your card at pickup.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 5, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">09:00</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹15000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Authorization</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Rental and fuel hold is placed on your card at pickup.</td>
                             </tr>
                             <tr>
-                                <td>March 5, 2026</td>
-                                <td>09:00</td>
-                                <td>₹10000</td>
-                                <td>Authorization</td>
-                                <td>A separate hold is kept for potential damage.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 5, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">09:00</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹10000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Authorization</td>
+                                <td style="border:1px solid #ccc;padding:8px;">A separate hold is kept for potential damage.</td>
                             </tr>
                             <tr>
-                                <td>March 9, 2026</td>
-                                <td>18:00</td>
-                                <td>₹12000</td>
-                                <td>Capture</td>
-                                <td>The rental cost is charged when you return the car.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 9, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">18:00</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹12000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Capture</td>
+                                <td style="border:1px solid #ccc;padding:8px;">The rental cost is charged when you return the car.</td>
                             </tr>
                             <tr>
-                                <td>March 9, 2026</td>
-                                <td>EOD</td>
-                                <td>₹12000</td>
-                                <td>Settlement</td>
-                                <td>The rental company receives the rental payment.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 9, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">EOD</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹12000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">The rental company receives the rental payment.</td>
                             </tr>
                             <tr>
-                                <td>March 20, 2026</td>
-                                <td>—</td>
-                                <td>₹10000</td>
-                                <td>Release</td>
-                                <td>Damage hold is released after inspection if no issue is found.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 20, 2026</td>
+                                <td style="border:1px solid #ccc;padding:8px;">—</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹10000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Release</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Damage hold is released after inspection if no issue is found.</td>
                             </tr>
                             <tr>
-                                <td>March 20, 2026*</td>
-                                <td>—</td>
-                                <td>₹3000</td>
-                                <td>Capture</td>
-                                <td>If damage is found, the additional charge is captured.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 20, 2026*</td>
+                                <td style="border:1px solid #ccc;padding:8px;">—</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹3000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Capture</td>
+                                <td style="border:1px solid #ccc;padding:8px;">If damage is found, the additional charge is captured.</td>
                             </tr>
                             <tr>
-                                <td>March 20, 2026*</td>
-                                <td>EOD</td>
-                                <td>₹3000</td>
-                                <td>Settlement</td>
-                                <td>The damage fee is transferred if the rental company charges it.</td>
+                                <td style="border:1px solid #ccc;padding:8px;">March 20, 2026*</td>
+                                <td style="border:1px solid #ccc;padding:8px;">EOD</td>
+                                <td style="border:1px solid #ccc;padding:8px;">₹3000</td>
+                                <td style="border:1px solid #ccc;padding:8px;">Settlement</td>
+                                <td style="border:1px solid #ccc;padding:8px;">The damage fee is transferred if the rental company charges it.</td>
                             </tr>
                         </tbody>
                     </table>
-                    </div>
                     <p style="font-size:13px;color:#4a5568;">*Damage charge is captured only if issues are found during inspection, up to 15 days after return.</p>
 
                 </div>
@@ -4687,31 +3680,6 @@ Double:     8   6   2   16  0   8   12  12</pre>
                 const body = header.nextElementSibling;
                 body.classList.toggle('open');
             }
-
-            function toggleSidebar() {
-                const sidebar = document.querySelector('.sidebar');
-                const overlay = document.getElementById('sidebarOverlay');
-                const toggle = document.getElementById('sidebarToggle');
-                
-                sidebar.classList.toggle('active');
-                overlay.classList.toggle('active');
-                toggle.classList.toggle('active');
-            }
-
-            function closeSidebar() {
-                const sidebar = document.querySelector('.sidebar');
-                const overlay = document.getElementById('sidebarOverlay');
-                const toggle = document.getElementById('sidebarToggle');
-                
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                toggle.classList.remove('active');
-            }
-
-            // Close sidebar when a navigation link is clicked
-            document.querySelectorAll('.nav-item').forEach(link => {
-                link.addEventListener('click', closeSidebar);
-            });
         </script>
 
 </body>
